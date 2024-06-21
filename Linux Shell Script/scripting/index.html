@@ -1,126 +1,196 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Scripting - note_server</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Scripting";
-        var mkdocs_page_input_path = "Linux Shell Script/scripting.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> note_server
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../Readme/">This is study notes about everything i learned</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../Useful_Command/">Useful Command</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">C</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" >C++</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../C/C%2B%2B/Compile/">Compile</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../C/C%2B%2B/basic/">Basic</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Linux Shell Script</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../File_System/">File System</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../What_Is_apt/">What Is apt</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../command/">Command</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Scripting</a>
-    <ul class="current">
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../shell_env/">Shell env</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Operation System</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../Operation%20System/Chapter_1/">Chapter 1</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">UE</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UE/CH1_Getting_Started/">Chapter 1 : Getting Started</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UE/CH2_Creating%20Classes/">Chapter 2 : Creating UE Properties</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UE/CH3_Memory%20Management/">Ch3 Memory Management, Smart Pointers and Debugging</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UE/CH4_Actors_and_Components/">Ch4 Actors and Components</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Python</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../python/basic/">Basic</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../python/python_scripting/">Python scripting</a>
-                  </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">note_server</a>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Linux Shell Script</li>
-      <li class="breadcrumb-item active">Scripting</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h2 id="_1">環境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Scripting - note_server</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">note_server</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../Readme/" class="nav-link">This is study notes about everything i learned</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../Useful_Command/" class="nav-link">Useful Command</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../C/C%2B%2B/Compile/" class="dropdown-item">Compile</a>
+</li>
+            
+<li>
+    <a href="../../C/C%2B%2B/basic/" class="dropdown-item">Basic</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Linux Shell Script</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../File_System/" class="dropdown-item">File System</a>
+</li>
+                                    
+<li>
+    <a href="../What_Is_apt/" class="dropdown-item">What Is apt</a>
+</li>
+                                    
+<li>
+    <a href="../command/" class="dropdown-item">Command</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Scripting</a>
+</li>
+                                    
+<li>
+    <a href="../shell_env/" class="dropdown-item">Shell env</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Operation System</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Operation%20System/Chapter_1/" class="dropdown-item">Chapter 1</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">UE</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../UE/CH1_Getting_Started/" class="dropdown-item">Chapter 1 : Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="../../UE/CH2_Creating%20Classes/" class="dropdown-item">Chapter 2 : Creating UE Properties</a>
+</li>
+                                    
+<li>
+    <a href="../../UE/CH3_Memory%20Management/" class="dropdown-item">Ch3 Memory Management, Smart Pointers and Debugging</a>
+</li>
+                                    
+<li>
+    <a href="../../UE/CH4_Actors_and_Components/" class="dropdown-item">Ch4 Actors and Components</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Python</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../python/basic/" class="dropdown-item">Basic</a>
+</li>
+                                    
+<li>
+    <a href="../../python/python_scripting/" class="dropdown-item">Python scripting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../command/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../shell_env/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">環境</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">自定義變量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_3" class="nav-link">或是</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">基本操作</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">數學運算</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="_1">環境</h2>
 <p>在執行中，shell會透過<code>PATH</code>環境變量來尋找指令，有兩種方法可以解決找不到命令的問題
 * 將shell腳本放到<code>PATH</code>環境變量中
 * 利用相對或絕對路徑來引用腳本
@@ -129,7 +199,7 @@
 * <code>$</code> 引用環境變量
     * 反斜線<code>\</code>允許shell腳本按照字面顯示$</p>
 <hr />
-<h2 id="_2">自定義變量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">自定義變量</h2>
 <ul>
 <li>shell允許用戶在腳本中自定義和使用自己的變量，但變量、等號與值中間 <strong>不能有空格</strong></li>
 <li>引用變量時加$，對變量賦值時不用加</li>
@@ -140,7 +210,7 @@
 <code>``sh
 testing=</code>date`</li>
 </ul>
-<h1 id="_3">或是<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h1 id="_3">或是</h1>
 <p>testing=$(date)
 ```</p>
 </li>
@@ -155,7 +225,7 @@ testing=</code>date`</li>
 <p><strong>注意</strong>：命令替換子shell中執行，無法使用腳本中的變量，但如果以不加路徑的方式執行則不會創建子shell</p>
 </blockquote>
 <hr />
-<h2 id="_4">基本操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">基本操作</h2>
 <ul>
 <li><code>&gt;</code>, <code>&gt;&gt;</code> ,<code>&lt;</code> 將命令作為輸入/輸出
     <code>ShellSession
@@ -190,14 +260,14 @@ testing=</code>date`</li>
     &gt; 使用時，記得退出最大狀態碼僅有255，超過會以255的餘數作為回傳值</li>
 </ul>
 <hr />
-<h2 id="_5">數學運算<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">數學運算</h2>
 <ul>
 <li><code>expr</code>命令：最一開始的數學表達式命令，但也特別笨拙</li>
 <li>方括號<code>[]</code>：更簡單的方法執行數學運算
     要將數學運算賦給變量，可以使用<code>$</code>與<code>[]</code> ：<code>var=$[operation]</code>
     &gt; bash shell一般只支援整數運算</li>
 <li>
-<h5 id="_6">浮點數<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<h5 id="_6">浮點數</h5>
 <ul>
 <li>
 <p><code>bc</code>：bash 計算器
@@ -223,52 +293,82 @@ EOF
 <hr />
 <p>條件控制</p>
 </li>
-</ul>
-              
+</ul></div>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../command/" class="btn btn-neutral float-left" title="Command"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../shell_env/" class="btn btn-neutral float-right" title="Shell env">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
         </div>
-      </div>
 
-    </section>
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../command/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../shell_env/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../..";</script>
-    <script src="../../js/theme_extra.js"></script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
 
-</body>
+    </body>
 </html>

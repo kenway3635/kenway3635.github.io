@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://local_server.com/UE/CH4_Actors_and_Components/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Ch4 Actors and Components - Note_Site</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ch4 Actors and Components";
+        var mkdocs_page_input_path = "UE/CH4_Actors_and_Components.md";
+        var mkdocs_page_url = "/UE/CH4_Actors_and_Components/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Note_Site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../Readme/">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Section 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/basic/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/Compile/">Details</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Note_Site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Ch4 Actors and Components</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ch4-actors-and-components">Ch4 Actors and Components<a class="headerlink" href="#ch4-actors-and-components" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<h2 id="aactor-base">AActor() base<a class="headerlink" href="#aactor-base" title="Permanent link">&para;</a></h2>
+A default Actor Class look like this</li>
+</ul>
+<p>in header file <code>MyFirstActor.h</code></p>
+<pre><code class="language-c++">#pragma once
+
+#include &quot;CoreMinimal.h&quot;
+#include &quot;GameFramework/Actor.h&quot;
+#include &quot;MyFirstActor.generated.h&quot;
+
+UCLASS()
+class CHAPTER_04_API AMyFirstActor : public AActor
+{
+    GENERATED_BODY()
+    public:
+        //Set default values for this actor's properities
+        AMyFirstActor();
+    protected:
+        //Called when the game started or when spawned
+        virtual void BeginPlay() override;
+    public: 
+        //Called every frame
+        virtual void tick(float DeltaTime) override;
+}
+</code></pre>
+<p>in cpp file <code>MyFirstActor.cpp</code></p>
+<pre><code class="language-c++">#include &quot;AMyFirstActor.h&quot;
+AMyFirstActor::AMyfirstActor()
+{
+    // set this actor to call Tick() every frame, can be turned off
+    PrimaryActorTick.bCanEverTick = true;
+}
+
+//Called when game start or spawned
+void AMyFirstActor::BeginPlay()
+{
+    Super::BeginPlay();
+}
+
+void AMyFirstActor::Tick(float DeltaTime)
+{
+    super::Tick(DeltaTime);
+}
+</code></pre>
+<hr />
+<ul>
+<li>
+<h2 id="destroy-aactor">Destroy AActor<a class="headerlink" href="#destroy-aactor" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+<p>Destroy by time
+setting timer at <code>BeginPlay()</code> function</p>
+<pre><code class="language-c++">FTimerHandle Timer;
+GetWorldTimeManager.SetTimer(Timer, this, 
+&amp;ACustomGameModeBase::DestroyActorFunction, 10)
+</code></pre>
+<p>implement DestroyActorFunction()</p>
+<pre><code class="language-c++">void ACustomGameModeBase::DestroyActorFunction()
+{
+    if(SpawnedActor != nullptr)
+    {
+        //Display message on screen
+        GEngine-&gt;AddOnScreenDebugMessage(-1, 10, FColor::Red, TEXT(&quot;Actor Destroyed&quot;));
+
+        SpawnedActor-&gt;Destroy();
+
+    }
+}
+</code></pre>
+<hr />
+<ul>
+<li>
+<h2 id="actor-components">Actor components<a class="headerlink" href="#actor-components" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+<h3 id="mesh-of-actor">Mesh of Actor<a class="headerlink" href="#mesh-of-actor" title="Permanent link">&para;</a></h3>
+<pre><code class="language-c++">//in header file
+UPROPERTY()
+UStaticMeshComponent *Mesh;
+
+//in cpp file
+AMyFirstActor::AMyFirstActor()
+{
+    //add this line
+    Mesh = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BaseMeshComponent&quot;);
+}
+</code></pre>
+<h3 id="assets-loading">Assets loading<a class="headerlink" href="#assets-loading" title="Permanent link">&para;</a></h3>
+<p>after mesh is created, we can load assets from content directory</p>
+<pre><code class="language-c++">
+auto MeshAsset = ConstructoHelpers::FObjectFinder&lt;UStaticMesh&gt;(TEXT(&quot;StaticMesh'/Engine/BasicShapes/Cube.Cube'&quot;));
+// Check if the MeshAsset is valid before setting it 
+if(MeshAsset.Object != nullptr)
+{
+    Mesh-&gt;SetStaticMesh(MeshAsset.Object);
+}
+</code></pre>
+<h3 id="components-attaching">Components attaching<a class="headerlink" href="#components-attaching" title="Permanent link">&para;</a></h3>
+<p>let's say that we have multiple mesh and assets need to bind together
+in header file <code>HierachyActorh.</code></p>
+<pre><code class="language-c++">UPROPERTY(VisibleAnywhere)
+USceneComponent *Root;
+
+UPROPERTY(VisibleAnyWhere)
+USceneComponent *ChildSceneComponent;
+
+UPROPERTY(VisibleAnywhere)
+UStaticMeshComponent *BoxOne;
+UPROPERTY(VisibleAnywhere)
+UStaticMeshComponent *BoxTwo;
+</code></pre>
+<p>in cpp file</p>
+<pre><code class="language-c++">// create subobject
+Root = CreateDefaultSubobject&lt;USceneComponent&gt;(&quot;Root&quot;);
+
+ChildSceneComponent = CreateDefaultSubobject&lt;USceneComponent&gt;(&quot;ChildSceneComponent&quot;);
+
+BoxOne = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BoxOne&quot;);
+BoxTwo = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BoxTwo&quot;);
+
+// get a reference to the cube mesh
+auto MeshAsset = ConstructHelpers::FObjectFinder&lt;UStaticMesh&gt;(TEXT(&quot;StaticMesh'/Engine/BasicShapes/Cube.cube'&quot;));
+//Give both boxes a mesh
+if(MeshAsset.Object != nullptr)
+{
+    BoxOne-&gt;SetStaticMesh(MeshAsset.Object);
+    BoxTwo-&gt;SetStaticMesh(MeshAsset.Object);
+}
+
+RootComponent = Root;
+
+//set up the object's hierarchy
+BoxOne-&gt;AttachTo(Root);
+BoxTwo-&gt;AttachTo(ChildSceneComponent);
+
+ChildSceneComponent-&gt;AttachTo(Root);
+
+// offset and scale the child from the root
+ChildSceneComponent-&gt;SetRelativeTransform(
+    FTransform(FRotator(0,0,0),
+            FVector(250,0,0),
+            FVector(0.1f))
+);
+</code></pre>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

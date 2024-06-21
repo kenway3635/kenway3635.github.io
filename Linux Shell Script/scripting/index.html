@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://local_server.com/Linux%20Shell%20Script/scripting/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Scripting - Note_Site</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Scripting";
+        var mkdocs_page_input_path = "Linux Shell Script/scripting.md";
+        var mkdocs_page_url = "/Linux%20Shell%20Script/scripting/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Note_Site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../Readme/">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Section 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/basic/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/Compile/">Details</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Note_Site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Scripting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="_1">環境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在執行中，shell會透過<code>PATH</code>環境變量來尋找指令，有兩種方法可以解決找不到命令的問題
+* 將shell腳本放到<code>PATH</code>環境變量中
+* 利用相對或絕對路徑來引用腳本
+* <code>echo</code> 顯示訊息，可以使用單引號<code>'</code>或雙引號<code>"</code>界定字符串
+    * <code>-n</code> 將字符串與命令顯示在同一列中
+* <code>$</code> 引用環境變量
+    * 反斜線<code>\</code>允許shell腳本按照字面顯示$</p>
+<hr />
+<h2 id="_2">自定義變量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>shell允許用戶在腳本中自定義和使用自己的變量，但變量、等號與值中間 <strong>不能有空格</strong></li>
+<li>引用變量時加$，對變量賦值時不用加</li>
+<li>從命令輸出中提取訊息並賦予變量<ul>
+<li><code>(``)</code>反引號</li>
+<li><code>$()</code> 格式
+若<code>date</code>為命令，則
+<code>``sh
+testing=</code>date`</li>
+</ul>
+<h1 id="_3">或是<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>testing=$(date)
+```</p>
+</li>
+</ul>
+<p>輸出日期例子
+   <code>sh
+   #!/bin/bash
+   #copy the /usr/bin directory listing to a log file
+   today=$(date +%y%m%d)
+   ls /usr/bin -al &gt; log.$today</code> </p>
+<blockquote>
+<p><strong>注意</strong>：命令替換子shell中執行，無法使用腳本中的變量，但如果以不加路徑的方式執行則不會創建子shell</p>
+</blockquote>
+<hr />
+<h2 id="_4">基本操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>&gt;</code>, <code>&gt;&gt;</code> ,<code>&lt;</code> 將命令作為輸入/輸出
+    <code>ShellSession
+    $ date &gt;&gt; test.log
+    $ command &lt; inputfile</code></li>
+<li>
+<p><code>|</code>：將命令傳給另一個命令，這個過程稱為 <strong>piping</strong>
+    <code>ShellSession
+    ##usage
+    $ command1 | command2
+    ##Example
+    $ rpm -qa | sort | more</code></p>
+</li>
+<li>
+<p><code>EOF</code>：定義了重定向數據的起止</p>
+</li>
+<li><code>$?</code>：linux提供的專門變量，用來保存最後一個已執行命令的退出狀態碼
+    一般狀態碼定義如下
+    | 狀態碼   | 描述    |
+    | :-----: | :----   |
+    | 0       | 命令成功結束 |
+    | 1       | 一般未知錯誤 |
+    | 2       | 不適合的shell命令 |
+    | 126       | 命令無法執行 |
+    | 127       | 沒找到命令 |
+    | 128       | 無效的退出參數 |
+    | 128+x       | 與linux信號x相關的嚴重錯誤 |
+    | 130       | 透過<code>ctrl + c</code>終止的命令 |
+    | 255       | 正常範圍以外的退出狀態碼 |</li>
+<li><code>exit</code>
+    默認狀態下，以腳本最後一個命令的退出狀態碼退出，也可以自己指定退出狀態碼
+    &gt; 使用時，記得退出最大狀態碼僅有255，超過會以255的餘數作為回傳值</li>
+</ul>
+<hr />
+<h2 id="_5">數學運算<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>expr</code>命令：最一開始的數學表達式命令，但也特別笨拙</li>
+<li>方括號<code>[]</code>：更簡單的方法執行數學運算
+    要將數學運算賦給變量，可以使用<code>$</code>與<code>[]</code> ：<code>var=$[operation]</code>
+    &gt; bash shell一般只支援整數運算</li>
+<li>
+<h5 id="_6">浮點數<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p><code>bc</code>：bash 計算器
+    &gt; 實際上是一種編程語言，允許在命令行輸入浮點數表達  </p>
+<p>運算需要先設置<code>scale</code>，顯示小數點後幾位，預設為<code>0</code>
+* <code>quit</code>：離開<code>bc</code></p>
+</li>
+</ul>
+<p>在腳本中使用<code>bc</code>的方法為<code>$ variable=$(echo "options; expression" | bc)</code>
+in shell script
+<code>Shell
+var1=$(echo "scale=4;3.44 / 5 "| bc)
+echo "the answer is $var1"</code>
+要大量使用浮點數運算，可以利用在命令列中重定向的方式
+<code>Shell
+varable=$(bc &lt;&lt; EOF
+options
+statements
+expressions
+EOF
+)</code>
+<code>EOF</code>字符串標定了重定向給<code>bc</code>命令的起止</p>
+<hr />
+<p>條件控制</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

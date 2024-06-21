@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://local_server.com/Linux%20Shell%20Script/What_Is_apt/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>What Is apt - Note_Site</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "What Is apt";
+        var mkdocs_page_input_path = "Linux Shell Script/What_Is_apt.md";
+        var mkdocs_page_url = "/Linux%20Shell%20Script/What_Is_apt/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Note_Site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../Readme/">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Section 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/basic/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/Compile/">Details</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Note_Site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">What Is apt</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <ul>
+<li>
+<h4 id="apt-advanced-package-tool">APT 命令(Advanced package tool)<a class="headerlink" href="#apt-advanced-package-tool" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>for Debian, 如果使用RedHat相關，會使用<code>yum</code>, <code>zypper</code>與<code>dnf</code>  </p>
+</blockquote>
+<p><code>dpkg</code>命令需要將<code>.deb</code>包文件下載至本地，或是以URL形式提供，但通常情況下，我們更願意使用Linux發行版安裝軟體包</p>
+<p>apt默認位置是在安裝linux時決定的，倉庫位置保存於<code>/etc/apt/sources.list</code>，正常情況下不需要修改文件
+* 文件內使用下列結構來指定倉庫
+    <code>deb (or deb-src) address distribution_name package_type_list</code>
+    * deb：軟體類型
+    * address：軟體倉庫的網址
+    * distribution_name：軟體倉庫發行版的名稱
+    * package_type_list：表明倉庫裡有軟體包    <br />
+* dpkg
+若需要獲得與特定軟體包相關的所有文件，需要使用<code>dpkg</code>命令
+例如，下面這個命令可以列出<code>acl</code>安裝的所有文件
+<code>ShellSession
+$ dpkg -L acl</code></p>
+<ul>
+<li>
+<p>apt 的基本命令格式如下</p>
+<ul>
+<li>apt-cache</li>
+<li>apt-get</li>
+<li>apt</li>
+</ul>
+<p><code>ShellSession
+$ apt [options] command</code>
+    * <code>list</code>：列出所有可用的軟體包，若再加入<code>--installed</code>，就可以限制輸出已安裝在系統上的軟體
+    * <code>show</code>：顯示詳細訊息
+    * <code>search</code>：尋找特定的軟體包，如只想按名稱搜尋，可以加入<code>--names-only</code>
+    * <code>install</code>：安裝軟體包
+    * <code>upgrade</code>：當有新軟體包時，升級系統內的所有軟體包
+    &gt; upgrade在升級過程不會刪除任何軟體包，若需要刪除軟體包才能完成升級，可以使用<code>apt full-upgrade</code>
+    * <code>remove</code>：移除軟體包
+    * <code>purge</code>：移除軟體包與相關數據、設置文件
+    * <code>autoremove</code>：將有依賴關係的軟體包一併刪除</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_1">容器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<h4 id="snap"><strong>snap</strong>：<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h4>
+<p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件
+<code>ShellSession
+$ snap [command]</code></p>
+<ul>
+<li><code>version</code>：snap版本</li>
+<li><code>list</code>：查看已安裝的snap應用程式</li>
+<li><code>find</code>：尋找特定程式</li>
+<li><code>info</code>：查看snap應用程式</li>
+<li><code>remove</code>：刪除特定snap</li>
+</ul>
+</li>
+</ul>
+<h4 id="_2">從原代碼安裝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<pre><code>從`tar`命令創建出的文件通常被稱為`tarball`
+</code></pre>
+<ol>
+<li>下載原代碼<code>&lt;package&gt;.tar.xz</code></li>
+<li>解壓縮<code>tar -Jxvf &lt;package&gt;.tar.xz</code></li>
+<li>進入目錄 <code>cd</code></li>
+<li>依照<code>README</code>或<code>INSTALL</code>文件進行安裝</li>
+</ol>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

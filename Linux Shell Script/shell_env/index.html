@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://local_server.com/Linux%20Shell%20Script/shell_env/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Shell env - Note_Site</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Shell env";
+        var mkdocs_page_input_path = "Linux Shell Script/shell_env.md";
+        var mkdocs_page_url = "/Linux%20Shell%20Script/shell_env/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Note_Site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../Readme/">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Section 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/basic/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../C/C%2B%2B/Compile/">Details</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Note_Site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Shell env</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="shell">shell命令<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<p>有很多種不同shell, 可以透過<code>echo $0</code>來確認目前使用的shell</p>
+<pre><code class="language-sh">ubuntu@ubuntu$ echo $0
+/bin/bash
+</code></pre>
+<p>在CLI中，看不出目前開的shell及父子關係，可以利用<code>ps</code>查看關係</p>
+<pre><code class="language-sh">ubuntu@ubuntu:~/CPP_Project$ bash
+ubuntu@ubuntu:~/CPP_Project$ bash
+ubuntu@ubuntu:~/CPP_Project$ bash
+ubuntu@ubuntu:~/CPP_Project$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+ubuntu     34038   33903  0 12:21 pts/0    00:00:00 /bin/bash --init-file /home/ubuntu/.vscode-server/cli/servers/Stable-611f9bfce64f25108829dd295f54a6894e87339d/server/out/vs/workbench/contrib/terminal/browser/med
+ubuntu     35418   34038  0 21:17 pts/0    00:00:00 bash
+ubuntu     35437   35418  1 21:17 pts/0    00:00:00 bash
+ubuntu     35450   35437  1 21:17 pts/0    00:00:00 bash
+ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
+</code></pre>
+<pre><code class="language-sh">ubuntu@ubuntu:~/CPP_Project$ ps --forest
+    PID TTY          TIME CMD
+  34038 pts/0    00:00:00 bash
+  35418 pts/0    00:00:00  \_ bash
+  35437 pts/0    00:00:00      \_ bash
+  35450 pts/0    00:00:00          \_ bash
+  35541 pts/0    00:00:00              \_ ps
+</code></pre>
+<p>bash也支援下列選項
+<code>-c</code> 從<code>string</code>中讀取命令
+<code>-i</code> 啟動能夠讀取用戶輸入的shell
+<code>-l</code> 作為登入shell
+<code>-r</code> 啟動一個受限的shell
+<code>-s</code> 從標準輸入中讀取命令</p>
+<p>可以從<code>echo $BASH_SUBSHELL</code>查看是否生成子shell，返回0代表沒有</p>
+<hr />
+<ul>
+<li><code>printenv</code> 輸出全域環境變數，或變數值<blockquote>
+<p>也可以用<code>echo $</code>顯示變量值</p>
+</blockquote>
+</li>
+<li>
+<p><code>set</code> 顯示特定進程的所有環境變量</p>
+<blockquote>
+<p>使用自定義變量時，使用小寫可以避免同名產生的災難</p>
+</blockquote>
+</li>
+<li>
+<p>設定全域變量的方法，也是先創造局部變量後，再將其導入全域變量<code>export</code></p>
+</li>
+</ul>
+<pre><code class="language-sh">my_variable=&quot;I am Global now&quot;
+export my_variable
+echo $my_variable
+</code></pre>
+<p>*在子shell修改並不影響父shell的全域變量值</p>
+<ul>
+<li><code>unset</code>刪除環境變量</li>
+</ul>
+<p>開啟__bash shell__時，通常會從5個不同啟動文件讀取命令
+* <code>/etc/profile</code> : default
+* <code>$HOME/.bash_profile</code>
+* <code>$HOME/.bashrc</code>
+* <code>$HOME/.bash_login</code>
+* <code>$HOME/.profile</code></p>
+<p>大多數發行版中，保存個人用戶的bash shell為<code>$HOME/.bashrc</code>
+* 數據變量：將環境變量作為數據使用</p>
+<pre><code class="language-sh">$ mytest=(zero one two three four)
+$ echo $mytest
+zero
+$ echo ${mytest[2]}
+two
+$ echo ${mytest[*]}
+zero one two three four
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

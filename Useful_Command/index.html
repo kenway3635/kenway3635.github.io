@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://local_server.com/Useful_Command/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Useful Command - Note_Site</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Useful Command";
+        var mkdocs_page_input_path = "Useful_Command.md";
+        var mkdocs_page_url = "/Useful_Command/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Note_Site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Readme/">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Section 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../C/C%2B%2B/basic/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../C/C%2B%2B/Compile/">Details</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Note_Site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Useful Command</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="memory-monitor-command">Memory monitor command<a class="headerlink" href="#memory-monitor-command" title="Permanent link">&para;</a></h2>
+<p>Note that Linux likes to use any extra memory to cache hard drive blocks. So you don't want to look at just the free Mem. You want to look at the free column of the -/+ buffers/cache: row. </p>
+<p>This shows how much memory is available to applications. So I just ran free -m and got this:</p>
+<pre><code class="language-sh">watch -n 5 free -m
+</code></pre>
+<p><strong>Reminder</strong>: To stop this watch cycle you can just press Ctrl+C.</p>
+<p>The <code>watch</code> command can be also used for monitoring other data with time update</p>
+<hr />
+<h2 id="process-namepid">Process name(PID)<a class="headerlink" href="#process-namepid" title="Permanent link">&para;</a></h2>
+<p>ps listed every process that is running</p>
+<pre><code class="language-sh">ps aux  | grep &lt;program name&gt;
+</code></pre>
+<p>with pgrep and pidof, it will only return PID of the program name</p>
+<pre><code class="language-sh">pgrep &lt;program_name&gt;
+pidof &lt;program_name&gt;
+</code></pre>
+<p>It can also reach by program itself</p>
+<h5 id="c-code">c code<a class="headerlink" href="#c-code" title="Permanent link">&para;</a></h5>
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    pid_t pid = getpid();
+    printf(&quot;The PID of this process is: %d\n&quot;, pid);
+    return 0;
+}
+
+</code></pre>
+<h5 id="python">python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h5>
+<pre><code>import os
+
+pid = os.getpid()
+print(f&quot;The PID of this process is: {pid}&quot;)
+</code></pre>
+<p>We can write it to a script also.</p>
+<pre><code class="language-sh">#!/bin/bash
+
+# 啟動程序並將其放入後台
+./my_program &amp;
+# 獲取後台進程的 PID
+PID=$!
+
+echo &quot;The PID of my_program is: $PID&quot;
+</code></pre>
+<hr />
+<h2 id="process-info-in-linux">Process Info in Linux<a class="headerlink" href="#process-info-in-linux" title="Permanent link">&para;</a></h2>
+<p>Files located in <code>/proc/[pid]/</code> provides tons of information about process including kernel content, complete docs can be found <a href="https://www.kernel.org/doc/Documentation/filesystems/proc.txt">here</a></p>
+<blockquote>
+<p>The directory  /proc  contains  (among other things) one subdirectory for each process running on the system, which is named after the process ID (PID).  </p>
+<p>if there is any doubt, review the kernel documentation in the directory /usr/src/linux/Documentation.</p>
+</blockquote>
+<ul>
+<li>
+<h4 id="status">status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h4>
+overview of process information, such as virtual memory, code and heap...so on</li>
+</ul>
+<pre><code class="language-sh">cat /proc/[pid]/status
+
+# 每0.5秒更新一次數據
+watch -n 0.5 cat /proc/[pid]/status
+</code></pre>
+<blockquote>
+<p>This shows you nearly the same information you would get if you viewed it with the ps  command.  In  fact,  ps  uses  the  proc  file  system  to  obtain its information.  But you get a more detailed  view of the  process by reading the file /proc/PID/status.</p>
+</blockquote>
+<ul>
+<li>
+<h4 id="maps">maps<a class="headerlink" href="#maps" title="Permanent link">&para;</a></h4>
+ further information about memory mapping, address range...so on<blockquote>
+<p>The /proc/PID/maps file contains the currently mapped memory regions and
+their access permissions.</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="language-sh">cat /proc/[pid]/maps
+
+#每0.5秒更新一次數據
+watch -n 0.5 cat /proc/[pid]/maps
+</code></pre>
+<ul>
+<li>
+<h4 id="smaps">smaps<a class="headerlink" href="#smaps" title="Permanent link">&para;</a></h4>
+much further information about each memory location of info, RSS(Resident Set Size), PSS(Proportional Set Size)...so on<blockquote>
+<p>The /proc/PID/smaps is an extension based on maps, showing the memory
+consumption for each of the process's mappings.</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="language-sh">cat /proc/[pid]/smaps
+
+#每0.5秒更新一次數據
+watch -n 0.5 cat /proc/[pid]/smaps
+</code></pre>
+<p>Like before, we can also write sript for automation, this time it's done by using <a href="./SampleCode/MemMonitor.py">python script</a></p>
+<hr />
+<h2 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>ctrl</code>+<code>shift</code>+<code>del</code> : clear terminal</li>
+</ul>
+<hr />
+<h2 id="ssh">ssh<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<h4 id="scp">scp<a class="headerlink" href="#scp" title="Permanent link">&para;</a></h4>
+<p>copy files between ssh server and client
+```sh</p>
+<h1 id="_1">從本地端複製到遠端<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>scp /path/file1 user@192.168.0.1:/path/file2
+<code></code>sh</p>
+<h1 id="_2">從遠端複製到本地端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>scp user@192.168.0.1:/path/file2 /path/file1
+<code>``</code>-r<code>: 複製整個目錄</code>-p<code>: 保留檔案時間與權限</code>-c` : 資料壓縮  </p>
+</li>
+</ul>
+<hr />
+<h2 id="git">git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
+<p>拉遠端的branch, 又想保存本地端修改</p>
+<pre><code class="language-sh">git stash #保存本地端修改
+git pull --rebase #拉取遠端
+git stash pop #還原本地端修改
+</code></pre>
+<p>修改commit訊息</p>
+<p>如果是要修改已經push上去的commit message，需要用rebase的方式修改
+<a href="" title="https://soarlin.github.io/2021/08/31/Git-%E6%9B%B4%E6%94%B9%E8%88%8A%E7%9A%84-commit-%E8%A8%8A%E6%81%AF/">Ref</a></p>
+<pre><code class="language-sh">git rebase -i head~N
+#N為要修改的commit訊息
+</code></pre>
+<p>而修改當前訊息，僅需要用<code>--amend</code>修改即可</p>
+<pre><code class="language-sh">git commit --amend -m &quot;New commit message.&quot;
+</code></pre>
+<hr />
+<p>note</p>
+<pre><code class="language-python">python3 adas-build/scripts/generate_ota_list_V3J_v2.0.py -o ./out/ -O MD.tar.xz -S SD.tar.xz -g -c
+
+
+## SAIL
+/data/ota_tools/sail_updater -r 2 -f /data/SAIL_IMG/sailsw1.elf  -i SAIL_SW1 
+python -m pdb /data/ota_tools/Flash_SAIL.py -P /data/ -S V3H__SD.tar.xz
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

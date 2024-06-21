@@ -165,7 +165,7 @@ consumption for each of the process's mappings.</p>
 #每0.5秒更新一次數據
 watch -n 0.5 cat /proc/[pid]/smaps
 </code></pre>
-<p>Like before, we can also write sript for automation, this time it's done by using <a href="./SampleCode/MemMonitor.py">python script</a></p>
+<p>Like before, we can also write sript for automation, this time it's done by using python script</p>
 <hr />
 <h2 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h2>
 <ul>
@@ -201,16 +201,6 @@ git stash pop #還原本地端修改
 </code></pre>
 <p>而修改當前訊息，僅需要用<code>--amend</code>修改即可</p>
 <pre><code class="language-sh">git commit --amend -m &quot;New commit message.&quot;
-</code></pre>
-<hr />
-<p>note</p>
-<pre><code class="language-python">python3 adas-build/scripts/generate_ota_list_V3J_v2.0.py -o ./out/ -O MD.tar.xz -S SD.tar.xz -g -c
-
-
-## SAIL
-/data/ota_tools/sail_updater -r 2 -f /data/SAIL_IMG/sailsw1.elf  -i SAIL_SW1 
-python -m pdb /data/ota_tools/Flash_SAIL.py -P /data/ -S V3H__SD.tar.xz
-
 </code></pre>
               
             </div>

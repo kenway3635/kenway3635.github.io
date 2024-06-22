@@ -1123,49 +1123,48 @@
 
 <h2 id="useful-tools">useful tools<a class="headerlink" href="#useful-tools" title="Permanent link">&para;</a></h2>
 <h2 id="memory-monitor-command">Memory monitor command<a class="headerlink" href="#memory-monitor-command" title="Permanent link">&para;</a></h2>
-<p>Note that Linux likes to use any extra memory to cache hard drive blocks. So you don't want to look at just the free Mem. You want to look at the free column of the -/+ buffers/cache: row. </p>
-<p>This shows how much memory is available to applications. So I just ran free -m and got this:</p>
-<pre><code class="language-sh">watch -n 5 free -m
-</code></pre>
+<p>Note that Linux likes to use any extra memory to cache hard drive blocks. So you don&rsquo;t want to look at just the free Mem. You want to look at the free column of the -/+ buffers/cache: row. </p>
+<p>This shows how much memory is available to applications. So I just ran free -m and got this:
+<div class="highlight"><pre><span></span><code>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>free<span class="w"> </span>-m
+</code></pre></div></p>
 <p><strong>Reminder</strong>: To stop this watch cycle you can just press Ctrl+C.</p>
 <p>The <code>watch</code> command can be also used for monitoring other data with time update</p>
 <hr />
 <h2 id="process-namepid">Process name(PID)<a class="headerlink" href="#process-namepid" title="Permanent link">&para;</a></h2>
-<p>ps listed every process that is running</p>
-<pre><code class="language-sh">ps aux  | grep &lt;program name&gt;
-</code></pre>
-<p>with pgrep and pidof, it will only return PID of the program name</p>
-<pre><code class="language-sh">pgrep &lt;program_name&gt;
-pidof &lt;program_name&gt;
-</code></pre>
+<p>ps listed every process that is running
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;program<span class="w"> </span>name&gt;
+</code></pre></div></p>
+<p>with pgrep and pidof, it will only return PID of the program name
+<div class="highlight"><pre><span></span><code>pgrep<span class="w"> </span>&lt;program_name&gt;
+pidof<span class="w"> </span>&lt;program_name&gt;
+</code></pre></div></p>
 <p>It can also reach by program itself</p>
 <h5 id="c-code">c code<a class="headerlink" href="#c-code" title="Permanent link">&para;</a></h5>
-<pre><code class="language-c++">#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 
-int main() {
-    pid_t pid = getpid();
-    printf(&quot;The PID of this process is: %d\n&quot;, pid);
-    return 0;
-}
-
-</code></pre>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getpid</span><span class="p">();</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The PID of this process is: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h5 id="python">python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h5>
-<pre><code>import os
+<div class="highlight"><pre><span></span><code>import os
 
 pid = os.getpid()
 print(f&quot;The PID of this process is: {pid}&quot;)
-</code></pre>
-<p>We can write it to a script also.</p>
-<pre><code class="language-sh">#!/bin/bash
+</code></pre></div>
+<p>We can write it to a script also.
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-# 啟動程序並將其放入後台
-./my_program &amp;
-# 獲取後台進程的 PID
-PID=$!
+<span class="c1"># 啟動程序並將其放入後台</span>
+./my_program<span class="w"> </span><span class="p">&amp;</span>
+<span class="c1"># 獲取後台進程的 PID</span>
+<span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
 
-echo &quot;The PID of my_program is: $PID&quot;
-</code></pre>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The PID of my_program is: </span><span class="nv">$PID</span><span class="s2">&quot;</span>
+</code></pre></div></p>
 <hr />
 <h2 id="process-info-in-linux">Process Info in Linux<a class="headerlink" href="#process-info-in-linux" title="Permanent link">&para;</a></h2>
 <p>Files located in <code>/proc/[pid]/</code> provides tons of information about process including kernel content, complete docs can be found <a href="https://www.kernel.org/doc/Documentation/filesystems/proc.txt">here</a></p>
@@ -1174,38 +1173,38 @@ echo &quot;The PID of my_program is: $PID&quot;
 <p>if there is any doubt, review the kernel documentation in the directory /usr/src/linux/Documentation.</p>
 </blockquote>
 <h3 id="status">status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
-<p>overview of process information, such as virtual memory, code and heap...so on</p>
-<pre><code class="language-sh">cat /proc/[pid]/status
+<p>overview of process information, such as virtual memory, code and heap&hellip;so on
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/status
 
-# 每0.5秒更新一次數據
-watch -n 0.5 cat /proc/[pid]/status
-</code></pre>
+<span class="c1"># 每0.5秒更新一次數據</span>
+watch<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/status
+</code></pre></div></p>
 <blockquote>
 <p>This shows you nearly the same information you would get if you viewed it with the ps  command.  In  fact,  ps  uses  the  proc  file  system  to  obtain its information.  But you get a more detailed  view of the  process by reading the file /proc/PID/status.</p>
 </blockquote>
 <h3 id="maps">maps<a class="headerlink" href="#maps" title="Permanent link">&para;</a></h3>
-<p>further information about memory mapping, address range...so on</p>
+<p>further information about memory mapping, address range&hellip;so on</p>
 <blockquote>
 <p>The /proc/PID/maps file contains the currently mapped memory regions and
-their access permissions.</p>
-</blockquote>
-<pre><code class="language-sh">cat /proc/[pid]/maps
+their access permissions.
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/maps
 
-#每0.5秒更新一次數據
-watch -n 0.5 cat /proc/[pid]/maps
-</code></pre>
+<span class="c1">#每0.5秒更新一次數據</span>
+watch<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/maps
+</code></pre></div></p>
+</blockquote>
 <h3 id="smaps">smaps<a class="headerlink" href="#smaps" title="Permanent link">&para;</a></h3>
-<p>much further information about each memory location of info, RSS(Resident Set Size), PSS(Proportional Set Size)...so on</p>
+<p>much further information about each memory location of info, RSS(Resident Set Size), PSS(Proportional Set Size)&hellip;so on</p>
 <blockquote>
 <p>The /proc/PID/smaps is an extension based on maps, showing the memory
-consumption for each of the process's mappings.</p>
+consumption for each of the process&rsquo;s mappings.</p>
 </blockquote>
-<pre><code class="language-sh">cat /proc/[pid]/smaps
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/smaps
 
-#每0.5秒更新一次數據
-watch -n 0.5 cat /proc/[pid]/smaps
-</code></pre>
-<p>Like before, we can also write sript for automation, this time it's done by using python script</p>
+<span class="c1">#每0.5秒更新一次數據</span>
+watch<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>cat<span class="w"> </span>/proc/<span class="o">[</span>pid<span class="o">]</span>/smaps
+</code></pre></div>
+<p>Like before, we can also write sript for automation, this time it&rsquo;s done by using python script</p>
 <hr />
 <h2 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1214,34 +1213,32 @@ watch -n 0.5 cat /proc/[pid]/smaps
 <hr />
 <h2 id="ssh">ssh<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
 <h3 id="scp">scp<a class="headerlink" href="#scp" title="Permanent link">&para;</a></h3>
-<p>copy files between ssh server and client</p>
-<pre><code class="language-sh">#從本地端複製到遠端
-scp /path/file1 user@192.168.0.1:/path/file2
-</code></pre>
-<pre><code class="language-sh">#從遠端複製到本地端
-scp user@192.168.0.1:/path/file2 /path/file1
-</code></pre>
-<ul>
-<li><code>-r</code> : 複製整個目錄  </li>
-<li><code>-p</code> : 保留檔案時間與權限  </li>
-<li><code>-c</code> : 資料壓縮  </li>
-</ul>
+<p>copy files between ssh server and client
+<div class="highlight"><pre><span></span><code><span class="c1">#從本地端複製到遠端</span>
+scp<span class="w"> </span>/path/file1<span class="w"> </span>user@192.168.0.1:/path/file2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#從遠端複製到本地端</span>
+scp<span class="w"> </span>user@192.168.0.1:/path/file2<span class="w"> </span>/path/file1
+</code></pre></div>
+* <code>-r</code> : 複製整個目錄<br />
+* <code>-p</code> : 保留檔案時間與權限<br />
+* <code>-c</code> : 資料壓縮  </p>
 <hr />
 <h2 id="git">git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
-<p>拉遠端的branch, 又想保存本地端修改</p>
-<pre><code class="language-sh">git stash #保存本地端修改
-git pull --rebase #拉取遠端
-git stash pop #還原本地端修改
-</code></pre>
+<p>拉遠端的branch, 又想保存本地端修改
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span><span class="c1">#保存本地端修改</span>
+git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span><span class="c1">#拉取遠端</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span><span class="c1">#還原本地端修改</span>
+</code></pre></div></p>
 <p>修改commit訊息</p>
 <p>如果是要修改已經push上去的commit message，需要用rebase的方式修改
-<a href="" title="https://soarlin.github.io/2021/08/31/Git-%E6%9B%B4%E6%94%B9%E8%88%8A%E7%9A%84-commit-%E8%A8%8A%E6%81%AF/">Ref</a></p>
-<pre><code class="language-sh">git rebase -i head~N
-#N為要修改的commit訊息
-</code></pre>
-<p>而修改當前訊息，僅需要用<code>--amend</code>修改即可</p>
-<pre><code class="language-sh">git commit --amend -m &quot;New commit message.&quot;
-</code></pre>
+<a href="" title="https://soarlin.github.io/2021/08/31/Git-%E6%9B%B4%E6%94%B9%E8%88%8A%E7%9A%84-commit-%E8%A8%8A%E6%81%AF/">Ref</a>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>head~N
+<span class="c1">#N為要修改的commit訊息</span>
+</code></pre></div></p>
+<p>而修改當前訊息，僅需要用<code>--amend</code>修改即可
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;New commit message.&quot;</span>
+</code></pre></div></p>
 
 
 

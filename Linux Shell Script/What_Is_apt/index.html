@@ -982,9 +982,9 @@
     * package_type_list：表明倉庫裡有軟體包    <br />
 * dpkg
 若需要獲得與特定軟體包相關的所有文件，需要使用<code>dpkg</code>命令
-例如，下面這個命令可以列出<code>acl</code>安裝的所有文件</p>
-<pre><code class="language-ShellSession">$ dpkg -L acl
-</code></pre>
+例如，下面這個命令可以列出<code>acl</code>安裝的所有文件
+<div class="highlight"><pre><span></span><code>$ dpkg -L acl
+</code></pre></div></p>
 <ul>
 <li>
 <p>apt 的基本命令格式如下</p>
@@ -993,8 +993,8 @@
 <li>apt-get</li>
 <li>apt</li>
 </ul>
-<p><code>ShellSession
-$ apt [options] command</code>
+<p><div class="highlight"><pre><span></span><code>$ apt [options] command
+</code></pre></div>
 * <code>list</code>：列出所有可用的軟體包，若再加入<code>--installed</code>，就可以限制輸出已安裝在系統上的軟體
 * <code>show</code>：顯示詳細訊息
 * <code>search</code>：尋找特定的軟體包，如只想按名稱搜尋，可以加入<code>--names-only</code>
@@ -1010,16 +1010,14 @@ $ apt [options] command</code>
 </ul>
 <h3 id="_1">容器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <h4 id="snap"><strong>snap</strong>：<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h4>
-<p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件</p>
-<pre><code class="language-ShellSession">$ snap [command]
-</code></pre>
-<ul>
-<li><code>version</code>：snap版本</li>
-<li><code>list</code>：查看已安裝的snap應用程式</li>
-<li><code>find</code>：尋找特定程式</li>
-<li><code>info</code>：查看snap應用程式</li>
-<li><code>remove</code>：刪除特定snap</li>
-</ul>
+<p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件
+<div class="highlight"><pre><span></span><code>$ snap [command]
+</code></pre></div>
+* <code>version</code>：snap版本
+* <code>list</code>：查看已安裝的snap應用程式
+* <code>find</code>：尋找特定程式
+* <code>info</code>：查看snap應用程式
+* <code>remove</code>：刪除特定snap</p>
 <h4 id="_2">從原代碼安裝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>從<code>tar</code>命令創建出的文件通常被稱為<code>tarball</code>
 1. 下載原代碼<code>&lt;package&gt;.tar.xz</code>

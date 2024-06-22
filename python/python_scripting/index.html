@@ -907,58 +907,55 @@
 
 <h2 id="library-tools">library &amp; tools<a class="headerlink" href="#library-tools" title="Permanent link">&para;</a></h2>
 <h2 id="python-subprocess-library">python subprocess library<a class="headerlink" href="#python-subprocess-library" title="Permanent link">&para;</a></h2>
-<p>basic usage</p>
-<pre><code class="language-python">subprocess.run([&quot;ls&quot;, -l])
-</code></pre>
+<p>basic usage
+<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">l</span><span class="p">])</span>
+</code></pre></div></p>
 <ul>
-<li><code>.run</code> :  </li>
+<li>
+<p><code>.run</code> :<br />
+<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+ <span class="n">capture_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+ <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">other_popen_kwargs</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>.popen</code> : 
+the <code>subprocess</code> is managed by <code>popen</code> class structure</p>
+</li>
 </ul>
-<pre><code class="language-python">subprocess.run(args, *, stdin=None, input=None, stdout=None, stderr=None,
- capture_output=False, shell=False, cwd=None, timeout=None, check=False, 
- encoding=None, errors=None, text=None, env=None, universal_newlines=None, **other_popen_kwargs)
-</code></pre>
-<ul>
-<li><code>.popen</code> : 
-the <code>subprocess</code> is managed by <code>popen</code> class structure</li>
-</ul>
-<pre><code class="language-python">class subprocess.Popen(args, bufsize=-1, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, 
-close_fds=True, shell=False, cwd=None, env=None, universal_newlines=None, startupinfo=None, creationflags=0, 
-restore_signals=True, start_new_session=False, pass_fds=(), *, group=None, extra_groups=None, user=None, 
-umask=-1, encoding=None, errors=None, text=None, pipesize=-1, process_group=None)
+<p><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">preexec_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">startupinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">creationflags</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+<span class="n">restore_signals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">start_new_session</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pass_fds</span><span class="o">=</span><span class="p">(),</span> <span class="o">*</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<span class="n">umask</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pipesize</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">process_group</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
-### usage
-Popen([&quot;/usr/bin/git&quot;, &quot;commit&quot;, &quot;-m&quot;, &quot;Fixes a bug.&quot;])
-
-</code></pre>
-<ul>
-<li><code>.communicate</code></li>
-</ul>
+<span class="c1">### usage</span>
+<span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;/usr/bin/git&quot;</span><span class="p">,</span> <span class="s2">&quot;commit&quot;</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;Fixes a bug.&quot;</span><span class="p">])</span>
+</code></pre></div>
+* <code>.communicate</code></p>
 <p>return (stdout_data, stderr_data)</p>
-<pre><code class="language-python">Popen.communicate(input = None, timeout = None)
+<div class="highlight"><pre><span></span><code><span class="n">Popen</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 
-### usage
-proc = subprocess.Popen(...)
-try:
-    outs, errs = proc.communicate(timeout=15)
-except TimeoutExpired:
-    proc.kill()
-    outs, errs = proc.communicate()
-</code></pre>
+<span class="c1">### usage</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">outs</span><span class="p">,</span> <span class="n">errs</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">TimeoutExpired</span><span class="p">:</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+    <span class="n">outs</span><span class="p">,</span> <span class="n">errs</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+</code></pre></div>
 <h2 id="pbd">PBD<a class="headerlink" href="#pbd" title="Permanent link">&para;</a></h2>
 <p>a tool to add breakpoint and execute code
-usage</p>
-<pre><code class="language-sh">python -m pdb myscript.py
-</code></pre>
-<ul>
-<li><code>b</code>: set a breakpoint</li>
-<li><code>c</code>: continue debugging until you hit a breakpoint</li>
-<li><code>s</code>: step through the code</li>
-<li><code>n</code>: to go to next line of code</li>
-<li><code>l</code>: list source code for the current file (default: 11 lines including the line being executed)</li>
-<li><code>u</code>: navigate up a stack frame</li>
-<li><code>d</code>: navigate down a stack frame</li>
-<li><code>p</code>: to print the value of an expression in the current context</li>
-</ul>
+usage
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pdb<span class="w"> </span>myscript.py
+</code></pre></div>
+* <code>b</code>: set a breakpoint
+* <code>c</code>: continue debugging until you hit a breakpoint
+* <code>s</code>: step through the code
+* <code>n</code>: to go to next line of code
+* <code>l</code>: list source code for the current file (default: 11 lines including the line being executed)
+* <code>u</code>: navigate up a stack frame
+* <code>d</code>: navigate down a stack frame
+* <code>p</code>: to print the value of an expression in the current context</p>
 <p>To set breakpoint in code, simply adding <code>breakpoint()</code> will do the work for you</p>
 <p><a href="https://docs.python.org/3/library/pdb.html">docs</a></p>
 

@@ -939,12 +939,12 @@
 
 <h2 id="shell">shell環境<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
 <h3 id="bash-shell">bash &amp; shell<a class="headerlink" href="#bash-shell" title="Permanent link">&para;</a></h3>
-<p>有很多種不同shell, 可以透過<code>echo $0</code>來確認目前使用的shell</p>
-<pre><code class="language-ShellSession">ubuntu@ubuntu$ echo $0
+<p>有很多種不同shell, 可以透過<code>echo $0</code>來確認目前使用的shell
+<div class="highlight"><pre><span></span><code>ubuntu@ubuntu$ echo $0
 /bin/bash
-</code></pre>
-<p>在CLI中，看不出目前開的shell及父子關係，可以利用<code>ps</code>查看關係</p>
-<pre><code class="language-ShellSession">ubuntu@ubuntu:~/CPP_Project$ bash
+</code></pre></div>
+在CLI中，看不出目前開的shell及父子關係，可以利用<code>ps</code>查看關係
+<div class="highlight"><pre><span></span><code>ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ ps -f
@@ -954,15 +954,15 @@ ubuntu     35418   34038  0 21:17 pts/0    00:00:00 bash
 ubuntu     35437   35418  1 21:17 pts/0    00:00:00 bash
 ubuntu     35450   35437  1 21:17 pts/0    00:00:00 bash
 ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
-</code></pre>
-<pre><code class="language-ShellSession">ubuntu@ubuntu:~/CPP_Project$ ps --forest
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>ubuntu@ubuntu:~/CPP_Project$ ps --forest
     PID TTY          TIME CMD
   34038 pts/0    00:00:00 bash
   35418 pts/0    00:00:00  \_ bash
   35437 pts/0    00:00:00      \_ bash
   35450 pts/0    00:00:00          \_ bash
   35541 pts/0    00:00:00              \_ ps
-</code></pre>
+</code></pre></div>
 <h3 id="bash">bash<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h3>
 <p>bash也支援下列選項
 <code>-c</code> 從<code>string</code>中讀取命令
@@ -987,23 +987,21 @@ ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
 <p>也可以用<code>echo $</code>顯示變量值
 * <code>set</code> 顯示特定進程的所有環境變量
 * <code>unset</code>刪除環境變量
-* 設定全域變量的方法，也是先創造局部變量後，再將其導入全域變量<code>export</code></p>
-</blockquote>
-<pre><code class="language-Shell">my_variable=&quot;I am Global now&quot;
-export my_variable
-echo $my_variable
-</code></pre>
-<ul>
-<li>數據變量：將環境變量作為數據使用</li>
-</ul>
-<pre><code class="language-sh">$ mytest=(zero one two three four)
-$ echo $mytest
+* 設定全域變量的方法，也是先創造局部變量後，再將其導入全域變量<code>export</code>
+<div class="highlight"><pre><span></span><code><span class="nv">my_variable</span><span class="o">=</span><span class="s2">&quot;I am Global now&quot;</span>
+<span class="nb">export</span><span class="w"> </span>my_variable
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$my_variable</span>
+</code></pre></div>
+* 數據變量：將環境變量作為數據使用
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">mytest</span><span class="o">=(</span>zero<span class="w"> </span>one<span class="w"> </span>two<span class="w"> </span>three<span class="w"> </span>four<span class="o">)</span>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$mytest</span>
 zero
-$ echo ${mytest[2]}
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">mytest</span><span class="p">[2]</span><span class="si">}</span>
 two
-$ echo ${mytest[*]}
-zero one two three four
-</code></pre>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">mytest</span><span class="p">[*]</span><span class="si">}</span>
+zero<span class="w"> </span>one<span class="w"> </span>two<span class="w"> </span>three<span class="w"> </span>four
+</code></pre></div></p>
+</blockquote>
 
 
 

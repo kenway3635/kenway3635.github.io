@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#shell" class="md-skip">
           Skip to content
         </a>
       
@@ -524,20 +524,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
-      環境變數
+      shell環境
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="shell環境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      bash &amp; shell
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#shell" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
     <span class="md-ellipsis">
-      shell命令
+      bash
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      變量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -855,20 +879,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
-      環境變數
+      shell環境
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="shell環境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      bash &amp; shell
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#shell" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
     <span class="md-ellipsis">
-      shell命令
+      bash
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      變量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -889,14 +937,14 @@
 
   <h1>Shell env</h1>
 
-<h2 id="_1">環境變數<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h2 id="shell">shell命令<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<h2 id="shell">shell環境<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<h3 id="bash-shell">bash &amp; shell<a class="headerlink" href="#bash-shell" title="Permanent link">&para;</a></h3>
 <p>有很多種不同shell, 可以透過<code>echo $0</code>來確認目前使用的shell</p>
-<pre><code class="language-sh">ubuntu@ubuntu$ echo $0
+<pre><code class="language-ShellSession">ubuntu@ubuntu$ echo $0
 /bin/bash
 </code></pre>
 <p>在CLI中，看不出目前開的shell及父子關係，可以利用<code>ps</code>查看關係</p>
-<pre><code class="language-sh">ubuntu@ubuntu:~/CPP_Project$ bash
+<pre><code class="language-ShellSession">ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ bash
 ubuntu@ubuntu:~/CPP_Project$ ps -f
@@ -907,7 +955,7 @@ ubuntu     35437   35418  1 21:17 pts/0    00:00:00 bash
 ubuntu     35450   35437  1 21:17 pts/0    00:00:00 bash
 ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
 </code></pre>
-<pre><code class="language-sh">ubuntu@ubuntu:~/CPP_Project$ ps --forest
+<pre><code class="language-ShellSession">ubuntu@ubuntu:~/CPP_Project$ ps --forest
     PID TTY          TIME CMD
   34038 pts/0    00:00:00 bash
   35418 pts/0    00:00:00  \_ bash
@@ -915,6 +963,7 @@ ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
   35450 pts/0    00:00:00          \_ bash
   35541 pts/0    00:00:00              \_ ps
 </code></pre>
+<h3 id="bash">bash<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h3>
 <p>bash也支援下列選項
 <code>-c</code> 從<code>string</code>中讀取命令
 <code>-i</code> 啟動能夠讀取用戶輸入的shell
@@ -922,38 +971,31 @@ ubuntu     35489   35450  0 21:17 pts/0    00:00:00 ps -f
 <code>-r</code> 啟動一個受限的shell
 <code>-s</code> 從標準輸入中讀取命令</p>
 <p>可以從<code>echo $BASH_SUBSHELL</code>查看是否生成子shell，返回0代表沒有</p>
-<hr />
-<ul>
-<li><code>printenv</code> 輸出全域環境變數，或變數值<blockquote>
-<p>也可以用<code>echo $</code>顯示變量值</p>
-</blockquote>
-</li>
-<li>
-<p><code>set</code> 顯示特定進程的所有環境變量</p>
-<blockquote>
-<p>使用自定義變量時，使用小寫可以避免同名產生的災難</p>
-</blockquote>
-</li>
-<li>
-<p>設定全域變量的方法，也是先創造局部變量後，再將其導入全域變量<code>export</code></p>
-</li>
-</ul>
-<pre><code class="language-sh">my_variable=&quot;I am Global now&quot;
-export my_variable
-echo $my_variable
-</code></pre>
-<p>*在子shell修改並不影響父shell的全域變量值</p>
-<ul>
-<li><code>unset</code>刪除環境變量</li>
-</ul>
 <p>開啟__bash shell__時，通常會從5個不同啟動文件讀取命令
 * <code>/etc/profile</code> : default
 * <code>$HOME/.bash_profile</code>
 * <code>$HOME/.bashrc</code>
 * <code>$HOME/.bash_login</code>
 * <code>$HOME/.profile</code></p>
-<p>大多數發行版中，保存個人用戶的bash shell為<code>$HOME/.bashrc</code>
-* 數據變量：將環境變量作為數據使用</p>
+<p>大多數發行版中，保存個人用戶的bash shell為<code>$HOME/.bashrc</code>  </p>
+<hr />
+<h3 id="_1">變量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>使用自定義變量時，使用小寫可以避免同名產生的災難
+在子shell修改並不影響父shell的全域變量值
+* <code>printenv</code> 輸出全域環境變數，或變數值</p>
+<blockquote>
+<p>也可以用<code>echo $</code>顯示變量值
+* <code>set</code> 顯示特定進程的所有環境變量
+* <code>unset</code>刪除環境變量
+* 設定全域變量的方法，也是先創造局部變量後，再將其導入全域變量<code>export</code></p>
+</blockquote>
+<pre><code class="language-Shell">my_variable=&quot;I am Global now&quot;
+export my_variable
+echo $my_variable
+</code></pre>
+<ul>
+<li>數據變量：將環境變量作為數據使用</li>
+</ul>
 <pre><code class="language-sh">$ mytest=(zero one two three four)
 $ echo $mytest
 zero

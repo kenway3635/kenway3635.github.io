@@ -362,9 +362,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="C/C++ compile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gcc-and-g" class="md-nav__link">
     <span class="md-ellipsis">
       GCC and G++
@@ -372,8 +373,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cmake" class="md-nav__link">
     <span class="md-ellipsis">
       CMake
@@ -441,13 +442,18 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#makefile" class="md-nav__link">
     <span class="md-ellipsis">
       Makefile
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -939,9 +945,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="C/C++ compile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gcc-and-g" class="md-nav__link">
     <span class="md-ellipsis">
       GCC and G++
@@ -949,8 +956,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cmake" class="md-nav__link">
     <span class="md-ellipsis">
       CMake
@@ -1018,13 +1025,18 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#makefile" class="md-nav__link">
     <span class="md-ellipsis">
       Makefile
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1046,7 +1058,7 @@
   <h1>Compile</h1>
 
 <h2 id="cc-compile">C/C++ compile<a class="headerlink" href="#cc-compile" title="Permanent link">&para;</a></h2>
-<h2 id="gcc-and-g">GCC and G++<a class="headerlink" href="#gcc-and-g" title="Permanent link">&para;</a></h2>
+<h3 id="gcc-and-g">GCC and G++<a class="headerlink" href="#gcc-and-g" title="Permanent link">&para;</a></h3>
 <p><a href="https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html">docs</a>
 * <code>-x</code> : </p>
 <blockquote>
@@ -1073,7 +1085,7 @@ gtest的default必須要加，否則在compile gtest的sample code時就必須�
 * <code>-shared</code>
 輸出能夠被其他object動態linking的share object</p>
 </blockquote>
-<h2 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h2>
+<h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
 <p>gcc/g++ 太麻煩且不好管理，用CMakeLists一次建立build environment  </p>
 <h4 id="_1">範例框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <pre><code class="language-cmake">cmake_minimum_required(VERSION 3.16) # CMake_最低版本_需求
@@ -1264,7 +1276,7 @@ task.json</p>
 }
 </code></pre>
 <p>task.json的詳細設定可以在這裡找到 : <a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/tasks.md">link</a></p>
-<h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
+<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h3>
 <p>common compile method in GNU/Linux, a common makefile will look like this, every command line should started with a <code>tab</code></p>
 <pre><code class="language-makefile">TARGET : PREREQUISITES
     COMMAND

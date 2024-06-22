@@ -467,18 +467,29 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="APT 命令(Advanced package tool)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basics
+    </span>
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       容器
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#snap" class="md-nav__link">
     <span class="md-ellipsis">
       snap：
@@ -486,13 +497,23 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       從原代碼安裝
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -879,18 +900,29 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="APT 命令(Advanced package tool)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basics
+    </span>
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       容器
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#snap" class="md-nav__link">
     <span class="md-ellipsis">
       snap：
@@ -898,13 +930,23 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       從原代碼安裝
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -925,9 +967,8 @@
 
   <h1>What Is apt</h1>
 
-<ul>
-<li>
-<h4 id="apt-advanced-package-tool">APT 命令(Advanced package tool)<a class="headerlink" href="#apt-advanced-package-tool" title="Permanent link">&para;</a></h4>
+<h2 id="apt-advanced-package-tool">APT 命令(Advanced package tool)<a class="headerlink" href="#apt-advanced-package-tool" title="Permanent link">&para;</a></h2>
+<h3 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>for Debian, 如果使用RedHat相關，會使用<code>yum</code>, <code>zypper</code>與<code>dnf</code>  </p>
 </blockquote>
@@ -941,9 +982,9 @@
     * package_type_list：表明倉庫裡有軟體包    <br />
 * dpkg
 若需要獲得與特定軟體包相關的所有文件，需要使用<code>dpkg</code>命令
-例如，下面這個命令可以列出<code>acl</code>安裝的所有文件
-<code>ShellSession
-$ dpkg -L acl</code></p>
+例如，下面這個命令可以列出<code>acl</code>安裝的所有文件</p>
+<pre><code class="language-ShellSession">$ dpkg -L acl
+</code></pre>
 <ul>
 <li>
 <p>apt 的基本命令格式如下</p>
@@ -954,26 +995,24 @@ $ dpkg -L acl</code></p>
 </ul>
 <p><code>ShellSession
 $ apt [options] command</code>
-    * <code>list</code>：列出所有可用的軟體包，若再加入<code>--installed</code>，就可以限制輸出已安裝在系統上的軟體
-    * <code>show</code>：顯示詳細訊息
-    * <code>search</code>：尋找特定的軟體包，如只想按名稱搜尋，可以加入<code>--names-only</code>
-    * <code>install</code>：安裝軟體包
-    * <code>upgrade</code>：當有新軟體包時，升級系統內的所有軟體包
-    &gt; upgrade在升級過程不會刪除任何軟體包，若需要刪除軟體包才能完成升級，可以使用<code>apt full-upgrade</code>
-    * <code>remove</code>：移除軟體包
-    * <code>purge</code>：移除軟體包與相關數據、設置文件
-    * <code>autoremove</code>：將有依賴關係的軟體包一併刪除</p>
+* <code>list</code>：列出所有可用的軟體包，若再加入<code>--installed</code>，就可以限制輸出已安裝在系統上的軟體
+* <code>show</code>：顯示詳細訊息
+* <code>search</code>：尋找特定的軟體包，如只想按名稱搜尋，可以加入<code>--names-only</code>
+* <code>install</code>：安裝軟體包
+* <code>upgrade</code>：當有新軟體包時，升級系統內的所有軟體包</p>
+<blockquote>
+<p>upgrade在升級過程不會刪除任何軟體包，若需要刪除軟體包才能完成升級，可以使用<code>apt full-upgrade</code>
+* <code>remove</code>：移除軟體包
+* <code>purge</code>：移除軟體包與相關數據、設置文件
+* <code>autoremove</code>：將有依賴關係的軟體包一併刪除</p>
+</blockquote>
 </li>
 </ul>
-</li>
-</ul>
-<h4 id="_1">容器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>
+<h3 id="_1">容器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <h4 id="snap"><strong>snap</strong>：<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h4>
-<p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件
-<code>ShellSession
-$ snap [command]</code></p>
+<p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件</p>
+<pre><code class="language-ShellSession">$ snap [command]
+</code></pre>
 <ul>
 <li><code>version</code>：snap版本</li>
 <li><code>list</code>：查看已安裝的snap應用程式</li>
@@ -981,17 +1020,12 @@ $ snap [command]</code></p>
 <li><code>info</code>：查看snap應用程式</li>
 <li><code>remove</code>：刪除特定snap</li>
 </ul>
-</li>
-</ul>
 <h4 id="_2">從原代碼安裝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<pre><code>從`tar`命令創建出的文件通常被稱為`tarball`
-</code></pre>
-<ol>
-<li>下載原代碼<code>&lt;package&gt;.tar.xz</code></li>
-<li>解壓縮<code>tar -Jxvf &lt;package&gt;.tar.xz</code></li>
-<li>進入目錄 <code>cd</code></li>
-<li>依照<code>README</code>或<code>INSTALL</code>文件進行安裝</li>
-</ol>
+<p>從<code>tar</code>命令創建出的文件通常被稱為<code>tarball</code>
+1. 下載原代碼<code>&lt;package&gt;.tar.xz</code>
+2. 解壓縮<code>tar -Jxvf &lt;package&gt;.tar.xz</code>
+3. 進入目錄 <code>cd</code>
+4. 依照<code>README</code>或<code>INSTALL</code>文件進行安裝</p>
 
 
 

@@ -1179,13 +1179,19 @@
 
 <h2 id="_1">腳本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h2 id="_2">環境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在執行中，shell會透過<code>PATH</code>環境變量來尋找指令，有兩種方法可以解決找不到命令的問題
-* 將shell腳本放到<code>PATH</code>環境變量中
-* 利用相對或絕對路徑來引用腳本
-* <code>echo</code> 顯示訊息，可以使用單引號<code>'</code>或雙引號<code>"</code>界定字符串
-    * <code>-n</code> 將字符串與命令顯示在同一列中
-* <code>$</code> 引用環境變量
-    * 反斜線<code>\</code>允許shell腳本按照字面顯示$</p>
+<p>在執行中，shell會透過<code>PATH</code>環境變量來尋找指令，有兩種方法可以解決找不到命令的問題</p>
+<ul>
+<li>將shell腳本放到<code>PATH</code>環境變量中</li>
+<li>利用相對或絕對路徑來引用腳本</li>
+<li><code>echo</code> 顯示訊息，可以使用單引號<code>'</code>或雙引號<code>"</code>界定字符串<ul>
+<li><code>-n</code> 將字符串與命令顯示在同一列中</li>
+</ul>
+</li>
+<li><code>$</code> 引用環境變量<ul>
+<li>反斜線<code>\</code>允許shell腳本按照字面顯示$</li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="_3">自定義變量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1342,10 +1348,12 @@ fi
 </blockquote>
 </li>
 </ul>
-<p>測試可以判斷3種條件
-* 數值比較
-* 字符串比較
-* 文件比較</p>
+<p>測試可以判斷3種條件</p>
+<ul>
+<li>數值比較</li>
+<li>字符串比較</li>
+<li>文件比較</li>
+</ul>
 <h4 id="_8">數值比較<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <table>
 <thead>

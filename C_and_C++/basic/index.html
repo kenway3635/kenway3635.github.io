@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -949,10 +947,12 @@
 <p>This form is typically used for including standard library headers or headers provided by the compiler. The compiler searches for the header file in the standard system directories.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<pre><code class="language-cpp">
+#include &lt;iostream&gt;
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-</code></pre></div>
+#include &lt;vector&gt;
+
+</code></pre>
 <ol>
 <li>
 <p><strong><code>#include "header"</code>: Double Quotes</strong></p>
@@ -961,30 +961,34 @@
 <p>This form is used for including user-defined headers or headers that are part of the project. The compiler searches for the header file first in the current directory and then in the standard system directories if not found.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;myheader.h&quot;</span>
+<pre><code class="language-cpp">
+#include &quot;myheader.h&quot;
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;utils/functions.h&quot;</span>
-</code></pre></div>
+#include &quot;utils/functions.h&quot;
+
+</code></pre>
 <h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>Let&rsquo;s say you have a user-defined header file named <code>myheader.h</code> and a standard library header file named <code>iostream</code>. You can include them as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Including a user-defined header with double quotes</span>
+<p>Let's say you have a user-defined header file named <code>myheader.h</code> and a standard library header file named <code>iostream</code>. You can include them as follows:</p>
+<pre><code class="language-cpp">
+// Including a user-defined header with double quotes
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;myheader.h&quot;</span>
+#include &quot;myheader.h&quot;
 
-<span class="c1">// Including a standard library header with angle brackets</span>
+// Including a standard library header with angle brackets
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-</code></pre></div>
+#include &lt;iostream&gt;
+
+</code></pre>
 <h2 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>usage</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">fruit</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">apple</span><span class="p">,</span>
-<span class="w">    </span><span class="n">banana</span><span class="p">,</span>
-<span class="w">    </span><span class="n">lemon</span><span class="p">,</span>
-<span class="w">    </span><span class="n">mango</span><span class="p">,</span>
-<span class="w">    </span><span class="n">orange</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-c++">enum fruit {
+    apple,
+    banana,
+    lemon,
+    mango,
+    orange
+}
+</code></pre>
 
 
 

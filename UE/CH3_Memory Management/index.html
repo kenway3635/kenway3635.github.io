@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -883,7 +881,7 @@
 <h2 id="managed-memory">Managed Memory :<a class="headerlink" href="#managed-memory" title="Permanent link">&para;</a></h2>
 </li>
 <li>allocate memory
-    there&rsquo;s several ways to perform it<ul>
+    there's several ways to perform it<ul>
 <li><code>NewObject&lt;&gt;</code> </li>
 <li><code>ConstructObject&lt;&gt;</code></li>
 <li><code>SpawnActor&lt;&gt;</code></li>
@@ -906,8 +904,8 @@
 <li><code>TAutoPtr</code> : A non-thread-safe pointer</li>
 <li><code>TScopedPointer</code>
 example
-<div class="highlight"><pre><span></span><code><span class="n">TSharedPtr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="n">sharedPtr</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">());</span>
-</code></pre></div></li>
+<code>c++
+TSharedPtr&lt;MyClass&gt;sharedPtr(new MyClass());</code></li>
 </ul>
 </li>
 <li>

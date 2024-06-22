@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -731,15 +729,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" class="md-nav__link">
-    <span class="md-ellipsis">
-      UENUM([Specifier, Specifier, ...]) enum FEnumName { enumMember1; enumMember2; enumMember3; };
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#5-ufunction" class="md-nav__link">
     <span class="md-ellipsis">
       5. UFUNCTION()
@@ -971,15 +960,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" class="md-nav__link">
-    <span class="md-ellipsis">
-      UENUM([Specifier, Specifier, ...]) enum FEnumName { enumMember1; enumMember2; enumMember3; };
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#5-ufunction" class="md-nav__link">
     <span class="md-ellipsis">
       5. UFUNCTION()
@@ -1005,82 +985,87 @@
 
 <h1 id="chapter-2-creating-ue-properties">Chapter 2 : Creating UE Properties<a class="headerlink" href="#chapter-2-creating-ue-properties" title="Permanent link">&para;</a></h1>
 <h2 id="1-creating-uclass">1. Creating UCLASS<a class="headerlink" href="#1-creating-uclass" title="Permanent link">&para;</a></h2>
-<p>It&rsquo;s perfectally accaptable using naive C++ Object <strong>Class</strong> and <strong>new</strong> , <strong>delete</strong> operaters in UE Classes, 
-but using <strong>UCLASS</strong> macro can utilize UE&rsquo;s build in smart pointer and garbage collection functions.
+<p>It's perfectally accaptable using naive C++ Object <strong>Class</strong> and <strong>new</strong> , <strong>delete</strong> operaters in UE Classes, 
+but using <strong>UCLASS</strong> macro can utilize UE's build in smart pointer and garbage collection functions.
  * UE4 such as <strong>UPROPERTY</strong>, <strong>UFUNCTION</strong> and <strong>UCLASS</strong> will be generated after include the<br />
  &lt; UCLASSNAME &gt;.generate.h files<br />
- * It&rsquo;s important to noted that <strong>&lt; UCLASSNAME &gt;.genetate.h</strong> file must be included 
+ * It's important to noted that <strong>&lt; UCLASSNAME &gt;.genetate.h</strong> file must be included 
  as the last #include in the list of #include in <strong>UCLASS.h</strong>  </p>
-<p>Here&rsquo;s a correct example</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
+<p>Here's a correct example</p>
+<pre><code class="language-C++">#pragma once
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;CoreMinimal.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;UObject/NoExportTypes.h&quot;</span>
+#include &quot;CoreMinimal.h&quot;
+#include &quot;UObject/NoExportTypes.h&quot;
 
-<span class="c1">//CORRECT, generated file is the last file included</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;UserProfile.generated.h&quot;</span><span class="c1"> </span>
+//CORRECT, generated file is the last file included
+#include &quot;UserProfile.generated.h&quot; 
 
-<span class="n">UCLASS</span><span class="p">()</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">XDD_API</span><span class="w"> </span><span class="n">UUserProfile</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+UCLASS()
+class XDD_API UUserProfile : public UObject
+{
+    GENERATED_BODY()
 
-<span class="p">};</span>
-</code></pre></div>
+};
+
+</code></pre>
 <p>Several keywords can modify the way of <strong>UCALSS</strong> behaves
-* Blueprintable : be able to construct a blueprint inside UE editor
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">Blueprintable</span><span class="p">)</span>
-</code></pre></div>
-* BlueprintType : be able to use as a variable from blueprint
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
-</code></pre></div>
-* NotBlueprintType : can not use this variable from blueprint
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">NotBlueprintType</span><span class="p">)</span>
-</code></pre></div></p>
+* Blueprintable : be able to construct a blueprint inside UE editor</p>
+<pre><code class="language-c++">UCLASS(Blueprintable)
+</code></pre>
+<ul>
+<li>BlueprintType : be able to use as a variable from blueprint</li>
+</ul>
+<pre><code class="language-c++">UCLASS(BlueprintType)
+</code></pre>
+<ul>
+<li>NotBlueprintType : can not use this variable from blueprint</li>
+</ul>
+<pre><code class="language-c++">UCLASS(NotBlueprintType)
+</code></pre>
 <hr />
 <h2 id="2-creating-uproperty">2. Creating UPROPERTY<a class="headerlink" href="#2-creating-uproperty" title="Permanent link">&para;</a></h2>
 <p>A compelet document can be found in <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-uproperties?application_version=5.3">here</a><br />
 in <strong>UCLASS</strong>, Each <strong>UPROPERTY</strong> represent it can be a visual editable or blueprint-accessable
 data member of the <strong>UCLASS</strong><br />
-Examples such as <strong>EditAnywhere</strong>, <strong>BlueprintReadWrite</strong> can be added to each <strong>UPROPERTY</strong>
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">Blueprintable</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">example_API</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATE_BODY</span><span class="p">()</span>
-<span class="w">    </span><span class="k">public</span><span class="o">:</span>
-<span class="w">        </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnyWhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stats</span><span class="p">)</span>
-<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">Armor</span><span class="p">;</span>
+Examples such as <strong>EditAnywhere</strong>, <strong>BlueprintReadWrite</strong> can be added to each <strong>UPROPERTY</strong></p>
+<pre><code class="language-c++">UCLASS(Blueprintable)
+class example_API : public UObject
+{
+    GENERATE_BODY()
+    public:
+        UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = Stats)
+        float Armor;
 
-<span class="w">        </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnyWhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stats</span><span class="p">)</span>
-<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">HpMax</span><span class="p">;</span><span class="w">  </span>
-<span class="p">};</span>
-</code></pre></div>
-parameters can be passed to the <strong>UPROPERTY()</strong> macro, such as 
+        UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = Stats)
+        float HpMax;  
+};
+</code></pre>
+<p>parameters can be passed to the <strong>UPROPERTY()</strong> macro, such as 
 * <strong>EditAnywhere</strong> : the property can be edited every where obviously
 * <strong>EditDefaultsOnly</strong> : Property can be changed only for blueprint before runtime(change default value)
 * <strong>EditInstanceOnly</strong> : Property can be changed only for game-level instance of <strong>UCLASS</strong> object
 * <strong>BlueprintReadWirte</strong> : Property can be both readable &amp; writable from blueprint diagram, <strong>notice</strong> that with <strong>BlueprintReadWrite</strong>, it must be a public member of class
 * <strong>BlueprintReadOnly</strong> : The Property must be set from C++ and cannot be changed from the blueprints
-* <strong>Category</strong> : It&rsquo;s recommended to always specify a <strong>Category</strong> for <strong>UPROPERTY( )</strong>, it determines which submenu the <strong>UPROPERTY( )</strong> will appear under in the property editor  </p>
+* <strong>Category</strong> : It's recommended to always specify a <strong>Category</strong> for <strong>UPROPERTY( )</strong>, it determines which submenu the <strong>UPROPERTY( )</strong> will appear under in the property editor  </p>
 <hr />
 <p>## 3. Allocation
 details can be found <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/typed-object-pointer-properties-in-unreal-engine?application_version=5.2">here</a>
  As reference before, we should not use <strong>new</strong> and <strong>delete</strong> for opject creation, instead, we use <strong>ConstructObject</strong> to instantiate object  </p>
 <p><strong>UCLASS</strong> should be considered as resources to the C++ code, and their names should never hardcoded into the code base.</p>
 <p>Therefore, we can declare an empty <strong>UCLASS</strong> reference in C++ code, then select it from blueprint dialog in UE editor.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// in UCLASS  code section</span>
+<pre><code class="language-C++">// in UCLASS  code section
 
-<span class="c1">//Display any UCLASSes deriving from UObject in a dropdown menu in Blueprints.</span>
-<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Editanywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unit</span><span class="p">)</span>
-<span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">UClassOfPlayer</span><span class="p">;</span>
+//Display any UCLASSes deriving from UObject in a dropdown menu in Blueprints.
+UPROPERTY(Editanywhere, BlueprintReadWrite, Category = Unit)
+TSubclassOf&lt;UObject&gt; UClassOfPlayer;
 
-<span class="c1">//Displays string name of UCLASSes that derive from the GameMode C++ base class</span>
-<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MetaClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GameMode&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unit</span><span class="p">)</span>
-<span class="n">FstringClassReference</span><span class="w"> </span><span class="n">UClassGameMode</span><span class="p">;</span>
-</code></pre></div>
+//Displays string name of UCLASSes that derive from the GameMode C++ base class
+UPROPERTY(EditAnywhere, meta = (MetaClass = &quot;GameMode&quot;), Category = Unit)
+FstringClassReference UClassGameMode;
+</code></pre>
 <ul>
 <li><strong>TSubclassOf&lt;&gt;</strong> : specify a <strong>UClass</strong> name using drop-down menu inside UE editor with related member.</li>
-<li><strong>FStringClassReference</strong> :the <strong>MetaClass</strong> refer to the base C++ class, which limit the drop-down menu&rsquo;s content to only the blueprints derived from that C++ class.</li>
+<li><strong>FStringClassReference</strong> :the <strong>MetaClass</strong> refer to the base C++ class, which limit the drop-down menu's content to only the blueprints derived from that C++ class.</li>
 </ul>
 <hr />
 <h2 id="instantiating">Instantiating<a class="headerlink" href="#instantiating" title="Permanent link">&para;</a></h2>
@@ -1089,42 +1074,43 @@ Instantiating new instances of <strong>UObject</strong> typically use <strong>Co
 it will need at least two info to work properly.
 * <strong>UClass</strong> reference to which type you want to initiate
 * Original C++ base class</p>
-<p>for example, initiate the object using <strong>ConstructObject&lt; &gt;</strong> will looks like<br />
-<div class="highlight"><pre><span></span><code><span class="n">ObjectType</span><span class="o">*</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstructObject</span><span class="o">&lt;</span><span class="n">ObjectType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UClassReference</span><span class="p">);</span>
-</code></pre></div>
-<strong>NewObject&lt;&gt;</strong>  is simple, but need to pass a GetTransientPackage() with each call
-<div class="highlight"><pre><span></span><code><span class="n">ObjectType</span><span class="o">*</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewObject</span><span class="o">&lt;</span><span class="n">ObjectType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="n">UClassReference</span><span class="p">);</span>
-</code></pre></div></p>
+<p>for example, initiate the object using <strong>ConstructObject&lt; &gt;</strong> will looks like  </p>
+<pre><code class="language-c++">ObjectType* object = ConstructObject&lt;ObjectType&gt;(UClassReference);
+</code></pre>
+<p><strong>NewObject&lt;&gt;</strong>  is simple, but need to pass a GetTransientPackage() with each call</p>
+<pre><code class="language-c++">ObjectType* object = NewObject&lt;ObjectType&gt;(GetTransientPackage(), UClassReference);
+</code></pre>
 <hr />
 <h2 id="destroying">Destroying<a class="headerlink" href="#destroying" title="Permanent link">&para;</a></h2>
-<p>simply call <strong>ConditionalBeginDestroy()</strong> to begin teardown
-<div class="highlight"><pre><span></span><code><span class="n">newobject</span><span class="o">-&gt;</span><span class="n">ConditionalBeginDestroy</span><span class="p">();</span>
-<span class="n">newobject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-</code></pre></div></p>
+<p>simply call <strong>ConditionalBeginDestroy()</strong> to begin teardown</p>
+<pre><code class="language-c++">newobject-&gt;ConditionalBeginDestroy();
+newobject = nullptr;
+</code></pre>
 <p>default garbage collection time can be found in <strong>BaseEngine.ini</strong><br />
-we can trigger memory cleanup manually by calling 
-<div class="highlight"><pre><span></span><code>GetWorld()-&gt;FroceGarbageCollection(true)
-</code></pre></div></p>
+we can trigger memory cleanup manually by calling </p>
+<pre><code>GetWorld()-&gt;FroceGarbageCollection(true)
+</code></pre>
 <hr />
 <h2 id="4-creating-structure">4. Creating Structure<a class="headerlink" href="#4-creating-structure" title="Permanent link">&para;</a></h2>
-<p>A blueprint editable property in UE editor that contains multiple member, docs is <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/structs-in-unreal-engine?application_version=5.2">here</a>
-<div class="highlight"><pre><span></span><code><span class="n">USTRUCT</span><span class="p">([</span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="p">...])</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">FStructName</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
-<span class="p">};</span>
-</code></pre></div></p>
+<p>A blueprint editable property in UE editor that contains multiple member, docs is <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/structs-in-unreal-engine?application_version=5.2">here</a></p>
+<pre><code class="language-c++">USTRUCT([Specifier, Specifier, ...])
+struct FStructName
+{
+    GENERATED_BODY()
+};
+</code></pre>
 <hr />
 <h2 id="5-creating-enum">5. Creating Enum<a class="headerlink" href="#5-creating-enum" title="Permanent link">&para;</a></h2>
 <p>similar to USTRUCT</p>
-<h2 id="uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3"><div class="highlight"><pre><span></span><code><span class="n">UENUM</span><span class="p">([</span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="p">...])</span>
-<span class="k">enum</span><span class="w"> </span><span class="nc">FEnumName</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">enumMember1</span><span class="p">;</span>
-<span class="w">    </span><span class="n">enumMember2</span><span class="p">;</span>
-<span class="w">    </span><span class="n">enumMember3</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div><a class="headerlink" href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" title="Permanent link">&para;</a></h2>
+<pre><code class="language-c++">UENUM([Specifier, Specifier, ...])
+enum FEnumName
+{
+    enumMember1;
+    enumMember2;
+    enumMember3;
+};
+</code></pre>
+<hr />
 <h2 id="5-ufunction">5. UFUNCTION()<a class="headerlink" href="#5-ufunction" title="Permanent link">&para;</a></h2>
 <p><code>UFUNCTION()</code> is a c++ function that is also callable with BluePrint, any c++ function can be marked as a <code>UFUNCTION()</code>  </p>
 <p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/ufunctions-in-unreal-engine?application_version=5.3">docs</a></p>

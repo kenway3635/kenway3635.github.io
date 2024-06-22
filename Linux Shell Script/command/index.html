@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1025,11 +1023,11 @@ linux的檔案系統使用正斜線<code>/</code>，與windows使用的反斜線
 <li><code>*</code> 代表零或多個字</li>
 <li><code>[ae]</code> 可能出現的兩種字，可以用範圍<code>[a-e]</code>表示多個</li>
 <li><code>;</code> : 可以在單行內執行一串命令
-    <div class="highlight"><pre><span></span><code>ubuntu@ubuntu:~/CPP_Project$<span class="w"> </span><span class="nb">pwd</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>src<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">pwd</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..<span class="p">;</span><span class="w"> </span><span class="nb">pwd</span>
-/home/ubuntu/CPP_Project
-/home/ubuntu/CPP_Project/src
-/home/ubuntu/CPP_Project
-</code></pre></div></li>
+    <code>sh
+    ubuntu@ubuntu:~/CPP_Project$ pwd ; cd src ; pwd ; cd ..; pwd
+    /home/ubuntu/CPP_Project
+    /home/ubuntu/CPP_Project/src
+    /home/ubuntu/CPP_Project</code></li>
 <li><code>&amp;</code> 加在結尾，將命令置入後台模式</li>
 <li><code>type</code> 判斷命令是否為內建，若為外部需要花費額外系統開銷</li>
 <li><code>history</code> 追蹤最近使用過的命令</li>

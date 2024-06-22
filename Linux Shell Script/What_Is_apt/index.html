@@ -942,8 +942,8 @@
 * dpkg
 若需要獲得與特定軟體包相關的所有文件，需要使用<code>dpkg</code>命令
 例如，下面這個命令可以列出<code>acl</code>安裝的所有文件
-<code>ShellSession
-$ dpkg -L acl</code></p>
+<div class="highlight"><pre><span></span><code>$ dpkg -L acl
+</code></pre></div></p>
 <ul>
 <li>
 <p>apt 的基本命令格式如下</p>
@@ -952,8 +952,8 @@ $ dpkg -L acl</code></p>
 <li>apt-get</li>
 <li>apt</li>
 </ul>
-<p><code>ShellSession
-$ apt [options] command</code>
+<p><div class="highlight"><pre><span></span><code>$ apt [options] command
+</code></pre></div>
     * <code>list</code>：列出所有可用的軟體包，若再加入<code>--installed</code>，就可以限制輸出已安裝在系統上的軟體
     * <code>show</code>：顯示詳細訊息
     * <code>search</code>：尋找特定的軟體包，如只想按名稱搜尋，可以加入<code>--names-only</code>
@@ -972,8 +972,8 @@ $ apt [options] command</code>
 <li>
 <h4 id="snap"><strong>snap</strong>：<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h4>
 <p>snap打包系統會將應用程式所需的所有文件集中到單個snap分發文件
-<code>ShellSession
-$ snap [command]</code></p>
+<div class="highlight"><pre><span></span><code>$ snap [command]
+</code></pre></div></p>
 <ul>
 <li><code>version</code>：snap版本</li>
 <li><code>list</code>：查看已安裝的snap應用程式</li>
@@ -984,8 +984,9 @@ $ snap [command]</code></p>
 </li>
 </ul>
 <h4 id="_2">從原代碼安裝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<pre><code>從`tar`命令創建出的文件通常被稱為`tarball`
-</code></pre>
+<div class="codehilite"><pre><span></span><code>從`tar`命令創建出的文件通常被稱為`tarball`
+</code></pre></div>
+
 <ol>
 <li>下載原代碼<code>&lt;package&gt;.tar.xz</code></li>
 <li>解壓縮<code>tar -Jxvf &lt;package&gt;.tar.xz</code></li>

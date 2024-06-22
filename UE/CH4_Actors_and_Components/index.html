@@ -1001,47 +1001,47 @@
 <h2 id="aactor-base">AActor() base<a class="headerlink" href="#aactor-base" title="Permanent link">&para;</a></h2>
 A default Actor Class look like this</li>
 </ul>
-<p>in header file <code>MyFirstActor.h</code></p>
-<pre><code class="language-c++">#pragma once
+<p>in header file <code>MyFirstActor.h</code>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
 
-#include &quot;CoreMinimal.h&quot;
-#include &quot;GameFramework/Actor.h&quot;
-#include &quot;MyFirstActor.generated.h&quot;
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;CoreMinimal.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;GameFramework/Actor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyFirstActor.generated.h&quot;</span>
 
-UCLASS()
-class CHAPTER_04_API AMyFirstActor : public AActor
-{
-    GENERATED_BODY()
-    public:
-        //Set default values for this actor's properities
-        AMyFirstActor();
-    protected:
-        //Called when the game started or when spawned
-        virtual void BeginPlay() override;
-    public: 
-        //Called every frame
-        virtual void tick(float DeltaTime) override;
-}
-</code></pre>
-<p>in cpp file <code>MyFirstActor.cpp</code></p>
-<pre><code class="language-c++">#include &quot;AMyFirstActor.h&quot;
-AMyFirstActor::AMyfirstActor()
-{
-    // set this actor to call Tick() every frame, can be turned off
-    PrimaryActorTick.bCanEverTick = true;
-}
+<span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CHAPTER_04_API</span><span class="w"> </span><span class="n">AMyFirstActor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">AActor</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="c1">//Set default values for this actor&#39;s properities</span>
+<span class="w">        </span><span class="n">AMyFirstActor</span><span class="p">();</span>
+<span class="w">    </span><span class="k">protected</span><span class="o">:</span>
+<span class="w">        </span><span class="c1">//Called when the game started or when spawned</span>
+<span class="w">        </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">BeginPlay</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="c1">//Called every frame</span>
+<span class="w">        </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">tick</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">DeltaTime</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+in cpp file <code>MyFirstActor.cpp</code>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;AMyFirstActor.h&quot;</span>
+<span class="n">AMyFirstActor</span><span class="o">::</span><span class="n">AMyfirstActor</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// set this actor to call Tick() every frame, can be turned off</span>
+<span class="w">    </span><span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bCanEverTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Called when game start or spawned
-void AMyFirstActor::BeginPlay()
-{
-    Super::BeginPlay();
-}
+<span class="c1">//Called when game start or spawned</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">AMyFirstActor</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+<span class="p">}</span>
 
-void AMyFirstActor::Tick(float DeltaTime)
-{
-    super::Tick(DeltaTime);
-}
-</code></pre>
+<span class="kt">void</span><span class="w"> </span><span class="n">AMyFirstActor</span><span class="o">::</span><span class="n">Tick</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">DeltaTime</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">super</span><span class="o">::</span><span class="n">Tick</span><span class="p">(</span><span class="n">DeltaTime</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <ul>
 <li>
@@ -1049,24 +1049,24 @@ void AMyFirstActor::Tick(float DeltaTime)
 </li>
 </ul>
 <p>Destroy by time
-setting timer at <code>BeginPlay()</code> function</p>
-<pre><code class="language-c++">FTimerHandle Timer;
-GetWorldTimeManager.SetTimer(Timer, this, 
-&amp;ACustomGameModeBase::DestroyActorFunction, 10)
-</code></pre>
-<p>implement DestroyActorFunction()</p>
-<pre><code class="language-c++">void ACustomGameModeBase::DestroyActorFunction()
-{
-    if(SpawnedActor != nullptr)
-    {
-        //Display message on screen
-        GEngine-&gt;AddOnScreenDebugMessage(-1, 10, FColor::Red, TEXT(&quot;Actor Destroyed&quot;));
+setting timer at <code>BeginPlay()</code> function
+<div class="highlight"><pre><span></span><code><span class="n">FTimerHandle</span><span class="w"> </span><span class="n">Timer</span><span class="p">;</span>
+<span class="n">GetWorldTimeManager</span><span class="p">.</span><span class="n">SetTimer</span><span class="p">(</span><span class="n">Timer</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span>
+<span class="o">&amp;</span><span class="n">ACustomGameModeBase</span><span class="o">::</span><span class="n">DestroyActorFunction</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+implement DestroyActorFunction()
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ACustomGameModeBase::DestroyActorFunction</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">SpawnedActor</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//Display message on screen</span>
+<span class="w">        </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">AddOnScreenDebugMessage</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">FColor</span><span class="o">::</span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;Actor Destroyed&quot;</span><span class="p">));</span>
 
-        SpawnedActor-&gt;Destroy();
+<span class="w">        </span><span class="n">SpawnedActor</span><span class="o">-&gt;</span><span class="n">Destroy</span><span class="p">();</span>
 
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <ul>
 <li>
@@ -1074,74 +1074,73 @@ GetWorldTimeManager.SetTimer(Timer, this,
 </li>
 </ul>
 <h3 id="mesh-of-actor">Mesh of Actor<a class="headerlink" href="#mesh-of-actor" title="Permanent link">&para;</a></h3>
-<pre><code class="language-c++">//in header file
-UPROPERTY()
-UStaticMeshComponent *Mesh;
+<div class="highlight"><pre><span></span><code><span class="c1">//in header file</span>
+<span class="n">UPROPERTY</span><span class="p">()</span>
+<span class="n">UStaticMeshComponent</span><span class="w"> </span><span class="o">*</span><span class="n">Mesh</span><span class="p">;</span>
 
-//in cpp file
-AMyFirstActor::AMyFirstActor()
-{
-    //add this line
-    Mesh = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BaseMeshComponent&quot;);
-}
-</code></pre>
+<span class="c1">//in cpp file</span>
+<span class="n">AMyFirstActor</span><span class="o">::</span><span class="n">AMyFirstActor</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//add this line</span>
+<span class="w">    </span><span class="n">Mesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">UStaticMeshComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;BaseMeshComponent&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="assets-loading">Assets loading<a class="headerlink" href="#assets-loading" title="Permanent link">&para;</a></h3>
-<p>after mesh is created, we can load assets from content directory</p>
-<pre><code class="language-c++">
-auto MeshAsset = ConstructoHelpers::FObjectFinder&lt;UStaticMesh&gt;(TEXT(&quot;StaticMesh'/Engine/BasicShapes/Cube.Cube'&quot;));
-// Check if the MeshAsset is valid before setting it 
-if(MeshAsset.Object != nullptr)
-{
-    Mesh-&gt;SetStaticMesh(MeshAsset.Object);
-}
-</code></pre>
+<p>after mesh is created, we can load assets from content directory
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">MeshAsset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstructoHelpers</span><span class="o">::</span><span class="n">FObjectFinder</span><span class="o">&lt;</span><span class="n">UStaticMesh</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;StaticMesh&#39;/Engine/BasicShapes/Cube.Cube&#39;&quot;</span><span class="p">));</span>
+<span class="c1">// Check if the MeshAsset is valid before setting it </span>
+<span class="k">if</span><span class="p">(</span><span class="n">MeshAsset</span><span class="p">.</span><span class="n">Object</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Mesh</span><span class="o">-&gt;</span><span class="n">SetStaticMesh</span><span class="p">(</span><span class="n">MeshAsset</span><span class="p">.</span><span class="n">Object</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="components-attaching">Components attaching<a class="headerlink" href="#components-attaching" title="Permanent link">&para;</a></h3>
-<p>let's say that we have multiple mesh and assets need to bind together
-in header file <code>HierachyActorh.</code></p>
-<pre><code class="language-c++">UPROPERTY(VisibleAnywhere)
-USceneComponent *Root;
+<p>let&rsquo;s say that we have multiple mesh and assets need to bind together
+in header file <code>HierachyActorh.</code>
+<div class="highlight"><pre><span></span><code><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">VisibleAnywhere</span><span class="p">)</span>
+<span class="n">USceneComponent</span><span class="w"> </span><span class="o">*</span><span class="n">Root</span><span class="p">;</span>
 
-UPROPERTY(VisibleAnyWhere)
-USceneComponent *ChildSceneComponent;
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">VisibleAnyWhere</span><span class="p">)</span>
+<span class="n">USceneComponent</span><span class="w"> </span><span class="o">*</span><span class="n">ChildSceneComponent</span><span class="p">;</span>
 
-UPROPERTY(VisibleAnywhere)
-UStaticMeshComponent *BoxOne;
-UPROPERTY(VisibleAnywhere)
-UStaticMeshComponent *BoxTwo;
-</code></pre>
-<p>in cpp file</p>
-<pre><code class="language-c++">// create subobject
-Root = CreateDefaultSubobject&lt;USceneComponent&gt;(&quot;Root&quot;);
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">VisibleAnywhere</span><span class="p">)</span>
+<span class="n">UStaticMeshComponent</span><span class="w"> </span><span class="o">*</span><span class="n">BoxOne</span><span class="p">;</span>
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">VisibleAnywhere</span><span class="p">)</span>
+<span class="n">UStaticMeshComponent</span><span class="w"> </span><span class="o">*</span><span class="n">BoxTwo</span><span class="p">;</span>
+</code></pre></div></p>
+<p>in cpp file
+<div class="highlight"><pre><span></span><code><span class="c1">// create subobject</span>
+<span class="n">Root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">USceneComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Root&quot;</span><span class="p">);</span>
 
-ChildSceneComponent = CreateDefaultSubobject&lt;USceneComponent&gt;(&quot;ChildSceneComponent&quot;);
+<span class="n">ChildSceneComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">USceneComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;ChildSceneComponent&quot;</span><span class="p">);</span>
 
-BoxOne = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BoxOne&quot;);
-BoxTwo = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(&quot;BoxTwo&quot;);
+<span class="n">BoxOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">UStaticMeshComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;BoxOne&quot;</span><span class="p">);</span>
+<span class="n">BoxTwo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">UStaticMeshComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;BoxTwo&quot;</span><span class="p">);</span>
 
-// get a reference to the cube mesh
-auto MeshAsset = ConstructHelpers::FObjectFinder&lt;UStaticMesh&gt;(TEXT(&quot;StaticMesh'/Engine/BasicShapes/Cube.cube'&quot;));
-//Give both boxes a mesh
-if(MeshAsset.Object != nullptr)
-{
-    BoxOne-&gt;SetStaticMesh(MeshAsset.Object);
-    BoxTwo-&gt;SetStaticMesh(MeshAsset.Object);
-}
+<span class="c1">// get a reference to the cube mesh</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">MeshAsset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstructHelpers</span><span class="o">::</span><span class="n">FObjectFinder</span><span class="o">&lt;</span><span class="n">UStaticMesh</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;StaticMesh&#39;/Engine/BasicShapes/Cube.cube&#39;&quot;</span><span class="p">));</span>
+<span class="c1">//Give both boxes a mesh</span>
+<span class="k">if</span><span class="p">(</span><span class="n">MeshAsset</span><span class="p">.</span><span class="n">Object</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">BoxOne</span><span class="o">-&gt;</span><span class="n">SetStaticMesh</span><span class="p">(</span><span class="n">MeshAsset</span><span class="p">.</span><span class="n">Object</span><span class="p">);</span>
+<span class="w">    </span><span class="n">BoxTwo</span><span class="o">-&gt;</span><span class="n">SetStaticMesh</span><span class="p">(</span><span class="n">MeshAsset</span><span class="p">.</span><span class="n">Object</span><span class="p">);</span>
+<span class="p">}</span>
 
-RootComponent = Root;
+<span class="n">RootComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Root</span><span class="p">;</span>
 
-//set up the object's hierarchy
-BoxOne-&gt;AttachTo(Root);
-BoxTwo-&gt;AttachTo(ChildSceneComponent);
+<span class="c1">//set up the object&#39;s hierarchy</span>
+<span class="n">BoxOne</span><span class="o">-&gt;</span><span class="n">AttachTo</span><span class="p">(</span><span class="n">Root</span><span class="p">);</span>
+<span class="n">BoxTwo</span><span class="o">-&gt;</span><span class="n">AttachTo</span><span class="p">(</span><span class="n">ChildSceneComponent</span><span class="p">);</span>
 
-ChildSceneComponent-&gt;AttachTo(Root);
+<span class="n">ChildSceneComponent</span><span class="o">-&gt;</span><span class="n">AttachTo</span><span class="p">(</span><span class="n">Root</span><span class="p">);</span>
 
-// offset and scale the child from the root
-ChildSceneComponent-&gt;SetRelativeTransform(
-    FTransform(FRotator(0,0,0),
-            FVector(250,0,0),
-            FVector(0.1f))
-);
-</code></pre>
+<span class="c1">// offset and scale the child from the root</span>
+<span class="n">ChildSceneComponent</span><span class="o">-&gt;</span><span class="n">SetRelativeTransform</span><span class="p">(</span>
+<span class="w">    </span><span class="n">FTransform</span><span class="p">(</span><span class="n">FRotator</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">            </span><span class="n">FVector</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">            </span><span class="n">FVector</span><span class="p">(</span><span class="mf">0.1f</span><span class="p">))</span>
+<span class="p">);</span>
+</code></pre></div></p>
 <h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 
 

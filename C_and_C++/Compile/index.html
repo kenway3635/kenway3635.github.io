@@ -428,15 +428,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#cmakelisttxt" class="md-nav__link">
-    <span class="md-ellipsis">
-      CmakeList.txt
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1005,15 +996,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#cmakelisttxt" class="md-nav__link">
-    <span class="md-ellipsis">
-      CmakeList.txt
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1076,217 +1058,214 @@ gtest的default必須要加，否則在compile gtest的sample code時就必須�
 <h2 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h2>
 <p>gcc/g++ 太麻煩且不好管理，用CMakeLists一次建立build environment  </p>
 <h4 id="_1">範例框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.16) # CMake_最低版本_需求
+<div class="highlight"><pre><span></span><code><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.16</span><span class="p">)</span><span class="w"> </span><span class="c"># CMake_最低版本_需求</span>
 
-project(&quot;Hello World&quot;) # 建立一個CMake專案，並給予專案名稱
+<span class="nb">project</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span><span class="w"> </span><span class="c"># 建立一個CMake專案，並給予專案名稱</span>
 
-add_executable(hello-world) # 建立一個CMake目標，目標為可執行檔
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">hello-world</span><span class="p">)</span><span class="w"> </span><span class="c"># 建立一個CMake目標，目標為可執行檔</span>
 
-target_sources(hello-world PRIVATE &quot;main.cpp&quot;) # 指定建置該CMake目標時所使用的來源檔案
-</code></pre>
+<span class="nb">target_sources</span><span class="p">(</span><span class="s">hello-world</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s2">&quot;main.cpp&quot;</span><span class="p">)</span><span class="w"> </span><span class="c"># 指定建置該CMake目標時所使用的來源檔案</span>
+</code></pre></div>
 <h4 id="_2">執行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p><code>add_executable()</code> : 建立可執行檔<br />
-<code>target_source()</code> : 指定CMake使用的來源檔案，不需包含標頭檔</p>
-<pre><code class="language-cmake">target_sources(project_name, 
-PRIVATE
-    &quot;main.cpp&quot;
-    &quot;func1.cpp&quot;
-    &quot;fun2.cpp&quot;)
-</code></pre>
+<code>target_source()</code> : 指定CMake使用的來源檔案，不需包含標頭檔
+<div class="highlight"><pre><span></span><code><span class="nb">target_sources</span><span class="p">(</span><span class="s">project_name,</span><span class="w"> </span>
+<span class="s">PRIVATE</span>
+<span class="w">    </span><span class="s2">&quot;main.cpp&quot;</span>
+<span class="w">    </span><span class="s2">&quot;func1.cpp&quot;</span>
+<span class="w">    </span><span class="s2">&quot;fun2.cpp&quot;</span><span class="p">)</span>
+</code></pre></div></p>
 <hr />
 <h4 id="_3">靜態函式庫連結<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p><code>target_include_directories()</code> : 新增目標的include目錄<br />
 <code>target_link_libraries()</code> : 新增目標的靜態函式庫<br />
-<code>add_subdirectory()</code> : 將指定資料夾內的CMake專案一起加入建置</p>
-<pre><code class="language-cmake"># 新增目標 project-02 的 Include 目錄
-target_include_directories(project-02
-    PRIVATE
-        &quot;libstatic1/&quot;
-)
+<code>add_subdirectory()</code> : 將指定資料夾內的CMake專案一起加入建置
+<div class="highlight"><pre><span></span><code><span class="c"># 新增目標 project-02 的 Include 目錄</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">project-02</span>
+<span class="w">    </span><span class="s">PRIVATE</span>
+<span class="w">        </span><span class="s2">&quot;libstatic1/&quot;</span>
+<span class="p">)</span>
 
-# 將指定資料夾的 CMake 專案（含有 CMakeLists.txt）一起加入建置。
-add_subdirectory(&quot;libstatic1/&quot;)
+<span class="c"># 將指定資料夾的 CMake 專案（含有 CMakeLists.txt）一起加入建置。</span>
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s2">&quot;libstatic1/&quot;</span><span class="p">)</span>
 
-# 新增目標 project-02 所連結的函式庫。函式庫名稱為其他 CMake 專案的目標名稱。通常來自
-# find_package 或 add_subdirectory。以這個範例來說，libstatic1 函式庫是來自
-# add_subdirectory 指令所加入的 CMake 專案。
-target_link_libraries(project-02
-    PRIVATE
-        libstatic1
-)
-</code></pre>
-<p>libstatic1/CMakeLists.txt</p>
-<pre><code class="language-cmake"># 新增一個 CMake 目標，目標型態為靜態函式庫。
-add_library(libstatic1 STATIC)
+<span class="c"># 新增目標 project-02 所連結的函式庫。函式庫名稱為其他 CMake 專案的目標名稱。通常來自</span>
+<span class="c"># find_package 或 add_subdirectory。以這個範例來說，libstatic1 函式庫是來自</span>
+<span class="c"># add_subdirectory 指令所加入的 CMake 專案。</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">project-02</span>
+<span class="w">    </span><span class="s">PRIVATE</span>
+<span class="w">        </span><span class="s">libstatic1</span>
+<span class="p">)</span>
+</code></pre></div>
+libstatic1/CMakeLists.txt
+<div class="highlight"><pre><span></span><code><span class="c"># 新增一個 CMake 目標，目標型態為靜態函式庫。</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">libstatic1</span><span class="w"> </span><span class="s">STATIC</span><span class="p">)</span>
 
-target_sources(libstatic1
-    PRIVATE
-        &quot;f1.cpp&quot;
-        &quot;f2.cpp&quot;
-)
-</code></pre>
+<span class="nb">target_sources</span><span class="p">(</span><span class="s">libstatic1</span>
+<span class="w">    </span><span class="s">PRIVATE</span>
+<span class="w">        </span><span class="s2">&quot;f1.cpp&quot;</span>
+<span class="w">        </span><span class="s2">&quot;f2.cpp&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
 <hr />
 <h4 id="_4">動態函式庫連結<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p><code>add_library()</code> : 由路徑搜索函式庫</p>
-<pre><code class="language-cmake">add_library(mylibrary SHARED src/mylibrary.cpp): 
-# 指定生成名為 mylibrary 的共享庫（動態函式庫），並包含源文件 src/mylibrary.cpp#。
+<p><code>add_library()</code> : 由路徑搜索函式庫
+<div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="s">mylibrary</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="s">src/mylibrary.cpp</span><span class="p">)</span><span class="err">:</span><span class="w"> </span>
+<span class="c"># 指定生成名為 mylibrary 的共享庫（動態函式庫），並包含源文件 src/mylibrary.cpp#。</span>
 
-#-----------------------
-#若是已經編譯好的.so或.dll
+<span class="c">#-----------------------</span>
+<span class="c">#若是已經編譯好的.so或.dll</span>
 
-# 設置外部庫的包含路徑
-include_directories(${CMAKE_SOURCE_DIR}/include)
+<span class="c"># 設置外部庫的包含路徑</span>
+<span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/include</span><span class="p">)</span>
 
-# 指定外部庫的位置
-set(EXTERNAL_LIB_PATH ${CMAKE_SOURCE_DIR}/lib)
+<span class="c"># 指定外部庫的位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">EXTERNAL_LIB_PATH</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
 
-# 查找動態庫
-find_library(EXTERNAL_LIB NAMES external PATHS ${EXTERNAL_LIB_PATH})
+<span class="c"># 查找動態庫</span>
+<span class="nb">find_library</span><span class="p">(</span><span class="s">EXTERNAL_LIB</span><span class="w"> </span><span class="s">NAMES</span><span class="w"> </span><span class="s">external</span><span class="w"> </span><span class="s">PATHS</span><span class="w"> </span><span class="o">${</span><span class="nv">EXTERNAL_LIB_PATH</span><span class="o">}</span><span class="p">)</span>
 
-# 連結外部動態函式庫
-target_link_libraries(MyExecutable ${EXTERNAL_LIB})
-</code></pre>
+<span class="c"># 連結外部動態函式庫</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExecutable</span><span class="w"> </span><span class="o">${</span><span class="nv">EXTERNAL_LIB</span><span class="o">}</span><span class="p">)</span>
+</code></pre></div></p>
 <h4 id="debug-in-vscode">Debug in vscode<a class="headerlink" href="#debug-in-vscode" title="Permanent link">&para;</a></h4>
 <p>使用gdb編譯單個文件時，可以使用以下configuration
 參考資料 <a href="https://code.visualstudio.com/docs/cpp/config-linux">docs</a>
-task.json</p>
-<pre><code class="language-json">{
-  &quot;version&quot;: &quot;2.0.0&quot;,
-  &quot;tasks&quot;: [
-    {
-      &quot;type&quot;: &quot;shell&quot;,
-      &quot;label&quot;: &quot;C/C++: g++ build active file&quot;,
-      &quot;command&quot;: &quot;/usr/bin/g++&quot;,
-      &quot;args&quot;: [&quot;-g&quot;, &quot;${file}&quot;, &quot;-o&quot;, &quot;${fileDirname}/${fileBasenameNoExtension}&quot;],
-      &quot;options&quot;: {
-        &quot;cwd&quot;: &quot;/usr/bin&quot;
-      },
-      &quot;problemMatcher&quot;: [&quot;$gcc&quot;],
-      &quot;group&quot;: {
-        &quot;kind&quot;: &quot;build&quot;,
-        &quot;isDefault&quot;: true
-      },
-      &quot;detail&quot;: &quot;Task generated by Debugger.&quot;
-    }
-  ]
-}
-</code></pre>
-<p>launch.json</p>
-<pre><code class="language-json">{
-  &quot;version&quot;: &quot;0.2.0&quot;,
-  &quot;configurations&quot;: [
-    {
-      &quot;name&quot;: &quot;C/C++: g++ build and debug active file&quot;,
-      &quot;type&quot;: &quot;cppdbg&quot;,
-      &quot;request&quot;: &quot;launch&quot;,
-      &quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}&quot;,
-      &quot;args&quot;: [],
-      &quot;stopAtEntry&quot;: false,
-      &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
-      &quot;environment&quot;: [],
-      &quot;externalConsole&quot;: false,
-      &quot;MIMode&quot;: &quot;gdb&quot;,
-      &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,
-      &quot;setupCommands&quot;: [
-        {
-          &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
-          &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
-          &quot;ignoreFailures&quot;: true
-        }
-      ],
-      &quot;preLaunchTask&quot;: &quot;C/C++: g++ build active file&quot;
-    }
-  ]
-}
-</code></pre>
-<ul>
-<li>
-<h4 id="cmakelisttxt">CmakeList.txt<a class="headerlink" href="#cmakelisttxt" title="Permanent link">&para;</a></h4>
-將launch.json內的configuratiion以cppdbg與gdb就能利用cmake去設斷點Debug了，參考此文件：<a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/debug-launch.md">here</a></li>
-</ul>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;0.2.0&quot;,
-    &quot;configurations&quot;: [
-        {
-            &quot;name&quot;: &quot;(gdb) Launch&quot;,
-            &quot;type&quot;: &quot;cppdbg&quot;,
-            &quot;request&quot;: &quot;launch&quot;,
-            // Resolved by CMake Tools:
-            &quot;program&quot;: &quot;${command:cmake.launchTargetPath}&quot;,
-            &quot;args&quot;: [],
-            &quot;stopAtEntry&quot;: false,
-            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
-            &quot;environment&quot;: [
-                {
-                    // add the directory where our target was built to the PATHs
-                    // it gets resolved by CMake Tools:
-                    &quot;name&quot;: &quot;PATH&quot;,
-                    &quot;value&quot;: &quot;${env:PATH}:${command:cmake.getLaunchTargetDirectory}&quot;
-                },
-                {
-                    &quot;name&quot;: &quot;OTHER_VALUE&quot;,
-                    &quot;value&quot;: &quot;Something something&quot;
-                }
-            ],
-            &quot;externalConsole&quot;: true,
-            &quot;MIMode&quot;: &quot;gdb&quot;,
-            &quot;setupCommands&quot;: [
-                {
-                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
-                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
-                    &quot;ignoreFailures&quot;: true
-                }
-            ]
-        }
-    ]
-}
-</code></pre>
-<p>若想要傳遞參數至cmake, 需要在task.json內增加configuration的code block</p>
-<pre><code class="language-json">{
-    &quot;label&quot;: &quot;configure&quot;,
-    &quot;type&quot;: &quot;shell&quot;,
-    &quot;command&quot;: &quot;cmake&quot;,
-    &quot;args&quot;: [
-        &quot;-S&quot;, &quot;.&quot;,   // 指定源目录
-        &quot;-B&quot;, &quot;build&quot;, // 指定构建目录
-        &quot;-DUNIT_TESTS=1&quot;,
-    ],
-    &quot;group&quot;: {
-        &quot;kind&quot;: &quot;build&quot;,
-        &quot;isDefault&quot;: true,
-    },
-    &quot;problemMatcher&quot;: [&quot;$gcc&quot;],
-    &quot;detail&quot;: &quot;configure cmake project.&quot;
-}
-{
-    // in build section, add this line
-    &quot;dependsOn&quot;: [ &quot;configure&quot; ],
-}
-</code></pre>
-<p>task.json的詳細設定可以在這裡找到 : <a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/tasks.md">link</a></p>
+task.json
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: g++ build active file&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/g++&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$gcc&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Task generated by Debugger.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>launch.json
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: g++ build and debug active file&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: g++ build active file&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+* #### CmakeList.txt
+將launch.json內的configuratiion以cppdbg與gdb就能利用cmake去設斷點Debug了，參考此文件：<a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/debug-launch.md">here</a>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(gdb) Launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Resolved by CMake Tools:</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${command:cmake.launchTargetPath}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// add the directory where our target was built to the PATHs</span>
+<span class="w">                    </span><span class="c1">// it gets resolved by CMake Tools:</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${env:PATH}:${command:cmake.getLaunchTargetDirectory}&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTHER_VALUE&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Something something&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>若想要傳遞參數至cmake, 需要在task.json內增加configuration的code block
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;configure&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;-S&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 指定源目录</span>
+<span class="w">        </span><span class="s2">&quot;-B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 指定构建目录</span>
+<span class="w">        </span><span class="s2">&quot;-DUNIT_TESTS=1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$gcc&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;configure cmake project.&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// in build section, add this line</span>
+<span class="w">    </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;configure&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+task.json的詳細設定可以在這裡找到 : <a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/tasks.md">link</a></p>
 <h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
 <p>common compile method in GNU/Linux, a common makefile will look like this, every command line should started with a <code>tab</code></p>
-<pre><code class="language-makefile">TARGET : PREREQUISITES
-    COMMAND
-    ...
-    ...
-</code></pre>
-<p>Example simple</p>
-<pre><code class="language-makefile">#sample Makefile
-edit : main.o kdb.o  command.o display.o \
-    insert.o search.o 
-main.o : main.c defs.h
-    cc -c main.c
+<div class="highlight"><pre><span></span><code><span class="nf">TARGET </span><span class="o">:</span><span class="w"> </span><span class="n">PREREQUISITES</span>
+<span class="w">    </span>COMMAND
+<span class="w">    </span>...
+<span class="w">    </span>...
+</code></pre></div>
+<p>Example simple
+<div class="highlight"><pre><span></span><code><span class="c">#sample Makefile</span>
+<span class="nf">edit </span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">o</span> <span class="n">kdb</span>.<span class="n">o</span>  <span class="n">command</span>.<span class="n">o</span> <span class="n">display</span>.<span class="n">o</span> \
+    <span class="n">insert</span>.<span class="n">o</span> <span class="n">search</span>.<span class="n">o</span> 
+<span class="nf">main.o </span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">c</span> <span class="n">defs</span>.<span class="n">h</span>
+<span class="w">    </span>cc<span class="w"> </span>-c<span class="w"> </span>main.c
 
-kbd.o : kbd.c defs.h command.h
-    cc -c kbd.c
+<span class="nf">kbd.o </span><span class="o">:</span><span class="w"> </span><span class="n">kbd</span>.<span class="n">c</span> <span class="n">defs</span>.<span class="n">h</span> <span class="n">command</span>.<span class="n">h</span>
+<span class="w">    </span>cc<span class="w"> </span>-c<span class="w"> </span>kbd.c
 
-command.o : command.c defs.h command.h
-    cc -c command.o
-.
-.
-.
-</code></pre>
+<span class="nf">command.o </span><span class="o">:</span><span class="w"> </span><span class="n">command</span>.<span class="n">c</span> <span class="n">defs</span>.<span class="n">h</span> <span class="n">command</span>.<span class="n">h</span>
+<span class="w">    </span>cc<span class="w"> </span>-c<span class="w"> </span>command.o
+<span class="err">.</span>
+<span class="err">.</span>
+<span class="err">.</span>
+</code></pre></div></p>
 
 
 

@@ -312,6 +312,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../C_and_C%2B%2B/Class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../C_and_C%2B%2B/Compile/" class="md-nav__link">
         
   
@@ -338,6 +359,27 @@
   
   <span class="md-ellipsis">
     Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C_and_C%2B%2B/memory_operation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory operation
   </span>
   
 
@@ -1237,23 +1279,62 @@ $ rpm -qa | sort | more
 <li>
 <p><code>EOF</code>：定義了重定向數據的起止</p>
 </li>
-<li><code>$?</code>：linux提供的專門變量，用來保存最後一個已執行命令的退出狀態碼
-    一般狀態碼定義如下
-    | 狀態碼   | 描述    |
-    | :-----: | :----   |
-    | 0       | 命令成功結束 |
-    | 1       | 一般未知錯誤 |
-    | 2       | 不適合的shell命令 |
-    | 126       | 命令無法執行 |
-    | 127       | 沒找到命令 |
-    | 128       | 無效的退出參數 |
-    | 128+x       | 與linux信號x相關的嚴重錯誤 |
-    | 130       | 透過<code>ctrl + c</code>終止的命令 |
-    | 255       | 正常範圍以外的退出狀態碼 |</li>
 <li>
-<p><code>exit</code>
-    默認狀態下，以腳本最後一個命令的退出狀態碼退出，也可以自己指定退出狀態碼
-    &gt; 使用時，記得退出最大狀態碼僅有255，超過會以255的餘數作為回傳值</p>
+<p><code>$?</code>：linux提供的專門變量，用來保存最後一個已執行命令的退出狀態碼</p>
+<p>一般狀態碼定義如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">狀態碼</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">命令成功結束</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">一般未知錯誤</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">不適合的shell命令</td>
+</tr>
+<tr>
+<td style="text-align: center;">126</td>
+<td style="text-align: left;">命令無法執行</td>
+</tr>
+<tr>
+<td style="text-align: center;">127</td>
+<td style="text-align: left;">沒找到命令</td>
+</tr>
+<tr>
+<td style="text-align: center;">128</td>
+<td style="text-align: left;">無效的退出參數</td>
+</tr>
+<tr>
+<td style="text-align: center;">128+x</td>
+<td style="text-align: left;">與linux信號x相關的嚴重錯誤</td>
+</tr>
+<tr>
+<td style="text-align: center;">130</td>
+<td style="text-align: left;">透過<code>ctrl + c</code>終止的命令</td>
+</tr>
+<tr>
+<td style="text-align: center;">255</td>
+<td style="text-align: left;">正常範圍以外的退出狀態碼</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>exit</code></p>
+<p>默認狀態下，以腳本最後一個命令的退出狀態碼退出，也可以自己指定退出狀態碼</p>
+<blockquote>
+<p>使用時，記得退出最大狀態碼僅有255，超過會以255的餘數作為回傳值</p>
+</blockquote>
 </li>
 <li>
 <p><code>/dev/null</code>

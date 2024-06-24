@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Compile/">
+        <link rel="prev" href="../basic/">
       
       
-        <link rel="next" href="../memory_operation/">
+        <link rel="next" href="../../Linux%20Shell%20Script/File_System/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Basic - note_server</title>
+        <title>Memory operation - note_server</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cc-basic" class="md-skip">
+        <a href="#memory-operation" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic
+              Memory operation
             
           </span>
         </div>
@@ -353,6 +353,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -367,7 +388,7 @@
           
   
   <span class="md-ellipsis">
-    Basic
+    Memory operation
   </span>
   
 
@@ -378,7 +399,7 @@
         
   
   <span class="md-ellipsis">
-    Basic
+    Memory operation
   </span>
   
 
@@ -398,28 +419,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cc-basic" class="md-nav__link">
+  <a href="#memory-operation" class="md-nav__link">
     <span class="md-ellipsis">
-      C/C++ basic
+      Memory Operation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="C/C++ basic">
+    <nav class="md-nav" aria-label="Memory Operation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#include-path" class="md-nav__link">
+  <a href="#memory-allocation" class="md-nav__link">
     <span class="md-ellipsis">
-      Include path
+      Memory allocation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#memory-copy" class="md-nav__link">
     <span class="md-ellipsis">
-      Example:
+      Memory copy
     </span>
   </a>
   
@@ -430,40 +451,10 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      enum
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../memory_operation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Memory operation
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -921,28 +912,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cc-basic" class="md-nav__link">
+  <a href="#memory-operation" class="md-nav__link">
     <span class="md-ellipsis">
-      C/C++ basic
+      Memory Operation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="C/C++ basic">
+    <nav class="md-nav" aria-label="Memory Operation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#include-path" class="md-nav__link">
+  <a href="#memory-allocation" class="md-nav__link">
     <span class="md-ellipsis">
-      Include path
+      Memory allocation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#memory-copy" class="md-nav__link">
     <span class="md-ellipsis">
-      Example:
+      Memory copy
     </span>
   </a>
   
@@ -950,15 +941,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      enum
-    </span>
-  </a>
   
 </li>
       
@@ -977,54 +959,38 @@
                   
 
 
-  <h1>Basic</h1>
+  <h1>Memory operation</h1>
 
-<h2 id="cc-basic">C/C++ basic<a class="headerlink" href="#cc-basic" title="Permanent link">&para;</a></h2>
-<h4 id="include-path">Include  path<a class="headerlink" href="#include-path" title="Permanent link">&para;</a></h4>
-<ol>
+<h2 id="memory-operation">Memory Operation<a class="headerlink" href="#memory-operation" title="Permanent link">&para;</a></h2>
+<h3 id="memory-allocation">Memory allocation<a class="headerlink" href="#memory-allocation" title="Permanent link">&para;</a></h3>
+<h3 id="memory-copy">Memory copy<a class="headerlink" href="#memory-copy" title="Permanent link">&para;</a></h3>
+<p>map or unmap file or device into memory
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">mmap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="n">addr</span><span class="p">[.</span><span class="n">length</span><span class="p">],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">off_t</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+</code></pre></div>
+* <code>addr</code> : specify the starting address
+    * addr == <code>NULL</code> : the kernel choose to create the mapping
+    * addr != <code>NULL</code> : the kernel take it as a <strong>hint</strong> to place</p>
+<div class="codehilite"><pre><span></span><code>* `length` : the length of the mapping
+</code></pre></div>
+
+<ul>
 <li>
-<p><strong><code>#include &lt;header&gt;</code>: Angle Brackets</strong></p>
+<p><code>proc</code> : desire memory protection of the mapping</p>
 </li>
 <li>
-<p>This form is typically used for including standard library headers or headers provided by the compiler. The compiler searches for the header file in the standard system directories.</p>
+<p><code>fd</code>、<code>offset</code>、<code>length</code>：The content of file mapping are initialize using <em>length</em> byte starting at <em>offset</em> in the file <em>fd</em></p>
 </li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</ul>
+<p><strong>Retuen value</strong> 
+* Success : Return a pointer to the mapped area
+* On error : Return <strong>MAP_FAILED</strong> ((void*) -1) </p>
+<hr />
+<p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">mumap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="n">addr</span><span class="p">[.</span><span class="n">length</span><span class="p">],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 </code></pre></div>
-<ol>
-<li>
-<p><strong><code>#include "header"</code>: Double Quotes</strong></p>
-</li>
-<li>
-<p>This form is used for including user-defined headers or headers that are part of the project. The compiler searches for the header file first in the current directory and then in the standard system directories if not found.</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;myheader.h&quot;</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;utils/functions.h&quot;</span>
-</code></pre></div>
-<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>Let&rsquo;s say you have a user-defined header file named <code>myheader.h</code> and a standard library header file named <code>iostream</code>. You can include them as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Including a user-defined header with double quotes</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;myheader.h&quot;</span>
-
-<span class="c1">// Including a standard library header with angle brackets</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-</code></pre></div>
-<h2 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
-<p>usage</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">fruit</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">apple</span><span class="p">,</span>
-<span class="w">    </span><span class="n">banana</span><span class="p">,</span>
-<span class="w">    </span><span class="n">lemon</span><span class="p">,</span>
-<span class="w">    </span><span class="n">mango</span><span class="p">,</span>
-<span class="w">    </span><span class="n">orange</span>
-<span class="p">}</span>
-</code></pre></div>
+Delete the mapping for the specified address range</p>
+<p><strong>Return values</strong>
+* Success : Return 0
+* Failure : Return -1</p>
 
 
 

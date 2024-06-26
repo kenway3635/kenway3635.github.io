@@ -461,6 +461,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../User_Input/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Input
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../What_Is_apt/" class="md-nav__link">
         
   
@@ -1879,10 +1900,10 @@ fi
 </code></pre></div>
 
 <h4 id="_12">使用單括號<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>__單括號__ `( )`允許if語句中使用子shell，使用格式`(command)`，在bash shell執行command前，會先創建子shell，成功結束則返回0
-&gt; 當在`if-then`中使用進程列表，可能會出現意料之外的結果，哪怕進程列表最後一個命令以外的其他命令全失敗，子shell仍會返回0
-</code></pre></div>
-
+<p><strong>單括號</strong> <code>( )</code>允許<code>if</code>語句中使用子shell，使用格式<code>(command)</code>，在bash shell執行command前，會先創建子shell，成功結束則返回0</p>
+<blockquote>
+<p>當在<code>if-then</code>中使用進程列表，可能會出現意料之外的結果，哪怕進程列表最後一個命令以外的其他命令全失敗，子shell仍會返回0</p>
+</blockquote>
 <h4 id="_13">使用雙括號<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><code>__雙括號__ 命令允許在比較過程中使用高級數學表示式(基本上跟C++相同)
 ```Shell

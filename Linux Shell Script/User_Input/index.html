@@ -580,6 +580,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="getopt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getopt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在腳本中使用getopt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getopts" class="md-nav__link">
+    <span class="md-ellipsis">
+      在腳本中使用getopts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      選項標準參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      獲取用戶輸入
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="獲取用戶輸入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    <span class="md-ellipsis">
+      read
+    </span>
+  </a>
+  
 </li>
         
       </ul>
@@ -1067,6 +1124,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="getopt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getopt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在腳本中使用getopt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getopts" class="md-nav__link">
+    <span class="md-ellipsis">
+      在腳本中使用getopts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      選項標準參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      獲取用戶輸入
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="獲取用戶輸入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    <span class="md-ellipsis">
+      read
+    </span>
+  </a>
+  
 </li>
         
       </ul>
@@ -1175,6 +1289,157 @@ bash sehll會將所有命令列參數指派為位置參數(positional parameter)
 $
 </code></pre></div>
 冒號<code>:</code>被放在<code>b</code>後面，代表了<code>b</code>選項需要一個參數</p>
+<h5 id="getopt_1">在腳本中使用getopt<a class="headerlink" href="#getopt_1" title="Permanent link">&para;</a></h5>
+<p>使用<code>set</code>命令處理各種變量
+<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>--<span class="k">$(</span>getopt<span class="w"> </span>-q<span class="w"> </span>ab:cd<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>
+<span class="w">        </span>-a<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found -a option&quot;</span><span class="p">;;</span>
+<span class="w">        </span>-b<span class="o">)</span><span class="w"> </span><span class="nv">parameter</span><span class="o">=</span><span class="nv">$2</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -b option with parameter value </span><span class="nv">$param</span><span class="s2">&quot;</span>
+<span class="w">            </span>shift<span class="p">;;</span>
+<span class="w">        </span>-c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found -c option&quot;</span><span class="p">;;</span>
+<span class="w">        </span>--<span class="o">)</span><span class="w"> </span><span class="nb">shift</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;;</span>
+<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> is not an option&quot;</span><span class="p">;;</span>
+<span class="w">    </span><span class="k">esac</span>
+<span class="w">    </span><span class="nb">shift</span>
+<span class="k">done</span>
+</code></pre></div></p>
+<h4 id="getopts">在腳本中使用getopts<a class="headerlink" href="#getopts" title="Permanent link">&para;</a></h4>
+<p>與getopt類似，多了些拓展功能，getopts每次只處理一個檢測到的命令列參數，處理完後getopts會退出並返回一個大於0的退出狀態碼</p>
+<p>使用方式與<code>getopt</code>類似，有效選項字母會在optstring列出，子母後若要參數值，就會在後面加一個冒號
+<div class="highlight"><pre><span></span><code>getopts optstring variable
+</code></pre></div>
+<code>getopts</code>選項加帶的參數值會被保存到<code>$OPTANG</code>環境變量
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span>:ab:c<span class="w"> </span>opt
+<span class="k">do</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">        </span>a<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -a option&quot;</span><span class="p">;;</span>
+<span class="w">        </span>b<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -b option with parameter value </span><span class="nv">$OPTARG</span><span class="s2">&quot;</span><span class="p">;;</span>
+<span class="w">        </span>c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -c option&quot;</span><span class="p">;;</span>
+<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Unknown option: </span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="p">;;</span>
+<span class="w">    </span><span class="k">esac</span>
+<span class="k">done</span>
+<span class="nb">exit</span>
+</code></pre></div></p>
+<h4 id="_7">選項標準參考<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>在Linux系統中，某些選項字母會有隱含的標準含意</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>顯示所有對象</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>指定目錄</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>拓展對象</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>指定讀入數據的文件</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略文本大小寫</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>產生長格式輸出</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用非交互模式</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>將所有輸出重定向至指定的文件</td>
+</tr>
+<tr>
+<td>-q or -s</td>
+<td>以靜默模式運行</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>遞迴處理文件與目錄</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>生成詳細輸出</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除某個文件</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>為所有問題回答yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">獲取用戶輸入<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="read"><code>read</code><a class="headerlink" href="#read" title="Permanent link">&para;</a></h4>
+<p><code>read</code>命令從標準輸入或另一個文件中接受輸入，獲取輸入後，<code>read</code>會將數據存入變量</p>
+<ul>
+<li>範例</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;Enter your name :&quot;</span>
+<span class="nb">read</span><span class="w"> </span>name
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="nv">$name</span><span class="s2">, welcome to my script. &quot;</span>
+<span class="nb">exit</span>
+</code></pre></div>
+<blockquote>
+<p>注意：<code>echo -n</code>選項不會在字符串末端輸出換行符，允許用戶緊跟其後輸入數據</p>
+</blockquote>
+<ul>
+<li><code>-p</code> 直接指定提示</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Please enter your age: &quot;</span>age
+</code></pre></div>
+<ul>
+<li>
+<p><code>REPLY</code>：包含所有輸入數據的環境變量</p>
+</li>
+<li>
+<p><code>-t</code> 指定計時器</p>
+</li>
+</ul>
+<p>使用<code>read</code>時，腳本可能一直等著用戶輸入，可以指定一個計時器，若超時<code>read</code>命令會返回非0狀態</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-t<span class="w"> </span><span class="m">5</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter your name : &quot;</span><span class="w"> </span>name
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="nv">$name</span><span class="s2">, welcome to my script&quot;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sorry, no longer waititng for name&quot;</span>
+<span class="k">fi</span>
+<span class="nb">exit</span>
+</code></pre></div>
+* <code>-n</code> 統計輸入的字符數，當自符數達到預設值時就自動退出
+* <code>-s</code> 隱藏顯示輸入</p>
+<ul>
+<li>從文件中讀取
+從文件中一行一行讀取
+<div class="highlight"><pre><span></span><code><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+cat<span class="w"> </span><span class="nv">$HOME</span>/scripts/test.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Line </span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$line</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">count</span><span class="o">=</span>$<span class="o">[</span><span class="w"> </span><span class="nv">$count</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<span class="k">done</span>
+</code></pre></div></li>
+</ul>
 
 
 

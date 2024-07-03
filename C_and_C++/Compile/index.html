@@ -1188,32 +1188,54 @@
 
 <h2 id="cc-compile">C/C++ compile<a class="headerlink" href="#cc-compile" title="Permanent link">&para;</a></h2>
 <h3 id="gcc-and-g">GCC and G++<a class="headerlink" href="#gcc-and-g" title="Permanent link">&para;</a></h3>
-<p><a href="https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html">docs</a>
-* <code>-x</code> : </p>
-<blockquote>
-<p>設定文件使用的語言(副檔名)
-* <code>-c</code> : 
-只compile並將assembly輸出目標檔至.obj, 沒有link
-* <code>-s</code> : 
-只compile並輸出成assembly
-* <code>-o &lt;file&gt;</code>: 
-compile, assembly跟linking完成後輸出目標檔至file
-* <code>-v</code> :
-印出編譯的資訊
-* <code>-###</code> : 
-與<code>-v</code>類似，但只輸出跟文數字有關的資訊
-* <code>-l</code> <code>-L</code>  <code>&lt; library &gt;</code>
-在linking階段尋找<code>library</code>
-* <code>-e entry</code>
-指定程式從entry作為輸入點
-* <code>-pthread</code>
+<p><a href="https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html">docs</a></p>
+<ul>
+<li>
+<p><code>-x</code> : 
+設定文件使用的語言(副檔名)</p>
+</li>
+<li>
+<p><code>-c</code> : 
+只compile並將assembly輸出目標檔至.obj, 沒有link</p>
+</li>
+<li>
+<p><code>-s</code> : 
+只compile並輸出成assembly</p>
+</li>
+<li>
+<p><code>-o &lt;file&gt;</code>: 
+compile, assembly跟linking完成後輸出目標檔至file</p>
+</li>
+<li>
+<p><code>-v</code> :
+印出編譯的資訊</p>
+</li>
+<li>
+<p><code>-###</code> : 
+與<code>-v</code>類似，但只輸出跟文數字有關的資訊</p>
+</li>
+<li>
+<p><code>-l</code> <code>-L</code>  <code>&lt; library &gt;</code>
+在linking階段尋找<code>library</code></p>
+</li>
+<li>
+<p><code>-e entry</code>
+指定程式從entry作為輸入點</p>
+</li>
+<li>
+<p><code>-pthread</code>
 link POSIX內的thread library (只支援GNU/Linux系統)
-gtest的default必須要加，否則在compile gtest的sample code時就必須要更改環境變數
-* <code>-static</code>
-在支援動態linking的系統上，指定靜態連結
-* <code>-shared</code>
+gtest的default必須要加，否則在compile gtest的sample code時就必須要更改環境變數</p>
+</li>
+<li>
+<p><code>-static</code>
+在支援動態linking的系統上，指定靜態連結</p>
+</li>
+<li>
+<p><code>-shared</code>
 輸出能夠被其他object動態linking的share object</p>
-</blockquote>
+</li>
+</ul>
 <h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
 <p>gcc/g++ 太麻煩且不好管理，用CMakeLists一次建立build environment  </p>
 <h4 id="_1">範例框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>

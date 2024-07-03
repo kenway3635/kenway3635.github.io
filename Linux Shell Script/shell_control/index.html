@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../File_System/">
+        <link rel="prev" href="../scripting/">
       
       
-        <link rel="next" href="../What_Is_apt/">
+        <link rel="next" href="../shell_env/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>User Input - note_server</title>
+        <title>Shell control - note_server</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User Input
+              Shell control
             
           </span>
         </div>
@@ -458,201 +458,18 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    User Input
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Input_Output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    User Input
+    Input Output
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      處理用戶輸入
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="處理用戶輸入">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      傳遞參數
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      參數測試
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      移動參數
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="移動參數">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shift" class="md-nav__link">
-    <span class="md-ellipsis">
-      shift
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      處理選項
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="處理選項">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      處理簡單選項
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getopt" class="md-nav__link">
-    <span class="md-ellipsis">
-      getopt
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="getopt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getopt_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      在腳本中使用getopt
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getopts" class="md-nav__link">
-    <span class="md-ellipsis">
-      在腳本中使用getopts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      選項標準參考
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      獲取用戶輸入
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="獲取用戶輸入">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#read" class="md-nav__link">
-    <span class="md-ellipsis">
-      read
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -716,6 +533,129 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shell control
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shell control
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      腳本控制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="腳本控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      產生信號
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      捕獲信號
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      任務調度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      定時運行作業
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定時運行作業">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      需要定期運行的腳本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1022,6 +962,69 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ssh
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Ssh
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh/ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ssh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1049,17 +1052,17 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      處理用戶輸入
+      腳本控制
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="處理用戶輸入">
+    <nav class="md-nav" aria-label="腳本控制">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      傳遞參數
+      產生信號
     </span>
   </a>
   
@@ -1068,7 +1071,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      參數測試
+      捕獲信號
     </span>
   </a>
   
@@ -1077,107 +1080,26 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      移動參數
+      任務調度
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="移動參數">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shift" class="md-nav__link">
-    <span class="md-ellipsis">
-      shift
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      處理選項
+      定時運行作業
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="處理選項">
+    <nav class="md-nav" aria-label="定時運行作業">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      處理簡單選項
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getopt" class="md-nav__link">
-    <span class="md-ellipsis">
-      getopt
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="getopt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getopt_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      在腳本中使用getopt
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getopts" class="md-nav__link">
-    <span class="md-ellipsis">
-      在腳本中使用getopts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      選項標準參考
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      獲取用戶輸入
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="獲取用戶輸入">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#read" class="md-nav__link">
-    <span class="md-ellipsis">
-      read
+      需要定期運行的腳本
     </span>
   </a>
   
@@ -1208,238 +1130,82 @@
                   
 
 
-  <h1>User Input</h1>
+  <h1>Shell control</h1>
 
-<h2 id="_1">處理用戶輸入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">傳遞參數<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>向腳本傳遞參數
-<div class="highlight"><pre><span></span><code>$ ./addem 10 30
+<h2 id="_1">腳本控制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h4 id="_2">產生信號<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>中斷進程  </li>
+</ul>
+<p><code>ctrl+C</code>會產生<code>SIGINT</code>信號，並將其發送給當前shell的所有進程，提前終止命令</p>
+<ul>
+<li>暫停進程</li>
+</ul>
+<p><code>ctrl+Z</code>會生成SIGTSTP訊號，停止shell中運行的所有進程</p>
+<h4 id="_3">捕獲信號<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p><code>trap</code>信號可以指定shell需要偵測並攔截的linux信號</p>
+<div class="highlight"><pre><span></span><code><span class="nb">trap</span><span class="w"> </span>commands<span class="w"> </span>signals
 </code></pre></div>
-bash sehll會將所有命令列參數指派為位置參數(positional parameter)</p>
-<p>位置參數的名稱都是標準數字：<code>$0</code>對應腳本名，<code>$1</code>對應第一個命令,&hellip;直到<code>$9</code>
-<div class="highlight"><pre><span></span><code><span class="nv">factorial</span><span class="o">=</span><span class="m">1</span>
-<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>number<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span>number++<span class="w"> </span><span class="o">))</span>
-<span class="k">do</span>
-<span class="w">    </span><span class="nv">factorial</span><span class="o">=</span>$<span class="o">[</span><span class="w"> </span><span class="nv">$factorial</span><span class="w"> </span>*<span class="w"> </span><span class="nv">$number</span><span class="w"> </span><span class="o">]</span>
-<span class="k">done</span>
-<span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>factorial<span class="w"> </span>of<span class="w"> </span><span class="nv">$1</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$factorial</span>
-<span class="nb">exit</span>
+<h3 id="_4">任務調度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在linux中，任務調度優先級指的為內核對程序分配的CPU時間，從最高優先(-20)到最低優先(19)，默認bash以優先度0級啟動所有進程</p>
+<ul>
+<li><code>nice</code></li>
+</ul>
+<p>nice命令允許在啟動時設定其優先度
+<div class="highlight"><pre><span></span><code>nice<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>./jobcontrol.sh
 </code></pre></div>
-如果需要輸入更多命令列參數，參數間必須要用空格分開</p>
-<blockquote>
-<p>將字串作為參數傳遞時，引號並不是數據的一部分，僅用於表明數據的起止
-如果腳本需要不只9個參數，需要再加上括號表示
-<div class="highlight"><pre><span></span><code><span class="nv">$9</span><span class="w"> </span><span class="si">${</span><span class="nv">10</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">11</span><span class="si">}</span>
+nice命令會阻止普通用戶提高命令的優先級，只有root或特權用戶才能提高</p>
+<ul>
+<li><code>renice</code></li>
+</ul>
+<p>修改系統中已運行命令的優先級，<code>renice</code>可以透過PID進行修改</p>
+<h3 id="_5">定時運行作業<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>at</code></li>
+</ul>
+<p><code>at</code>命令允許Linux系統何時運行腳本，該命令會將作業提交到列隊中，指定shell何時運行</p>
+<p><div class="highlight"><pre><span></span><code>at<span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>filename<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="nb">time</span>
 </code></pre></div>
-<code>$0</code>會回傳執行時的腳本名，包括相對與絕對路徑，可以用<code>basename</code>過濾掉路徑等不相干參數
-<div class="highlight"><pre><span></span><code><span class="nv">name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="nv">$0</span><span class="k">)</span>
+<code>time</code>選項指定了在何時運行該作業，若指定時間已過去，那麼<code>at</code>指令會在第二天同一時刻運行</p>
+<p><code>time</code>可以指定時間如下
+* 標準小時與分鐘，例如10:15
+* AM/PM指示符，例如10:15PM
+* 特定時間，比如 now, noon, midnight或teatime
+* 標準日期如MMDDYY、MM/DD/YY
+* 文本日期，如Jul 4或Dec 25
+* 時間增量如now+25 minutes</p>
+<p><code>atq</code> 列出等待的作業</p>
+<p><code>atrm</code>刪除等待中的作業</p>
+<h4 id="_6">需要定期運行的腳本<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>若腳本需要固定在每天，每周或每月的同一時間運行，與其頻繁用<code>at</code>，不如用<code>cron</code></p>
+<ul>
+<li><code>cron</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>minutepasthour<span class="w"> </span>hourofday<span class="w"> </span>dayofmonth<span class="w"> </span>month<span class="w"> </span>dayofweek<span class="w"> </span><span class="nb">command</span><span class="w"> </span>
+</code></pre></div>
+<p><code>cron</code>允許使用特定值、取值範圍(1~5)或者通符(*)來指定各個字段</p>
+<p>例子：如果想在每天的10:15運行一個命令
+<div class="highlight"><pre><span></span><code><span class="m">15</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="nb">command</span>
 </code></pre></div></p>
-</blockquote>
-<hr />
-<h3 id="_3">參數測試<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>$#</code>：程式運行時攜帶的命令列參數個數
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
-<span class="k">then</span>
-<span class="w">    </span><span class="nv">fragment</span><span class="o">=</span><span class="s2">&quot;parameter was&quot;</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nv">fragment</span><span class="o">=</span><span class="s2">&quot;parameters were&quot;</span>
-<span class="k">fi</span>
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span><span class="nv">$fragment</span><span class="w"> </span>supplied.
-<span class="nb">exit</span>
-</code></pre></div></li>
-<li><code>$*</code>，<code>$@</code>：獲取命令列所有參數，<code>$*</code>將所有命令視為一個單詞，而<code>$@</code>則是視為多個字串，可以利用<code>for</code>迴圈遍歷</li>
+<li><code>cron</code>時間表</li>
 </ul>
-<hr />
-<h3 id="_4">移動參數<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h4 id="shift">shift<a class="headerlink" href="#shift" title="Permanent link">&para;</a></h4>
-<p><code>shift</code>參數可以移動命令列參數的位置，默認會將每個位置的變量向左移一個位置，<code>$3</code>變為<code>$2</code>、<code>$2</code>變為<code>$1</code>，而<code>$1</code>的值被刪除
-<div class="highlight"><pre><span></span><code><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
-<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
-<span class="k">do</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parameter #</span><span class="nv">$count</span><span class="s2"> = </span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="w">    </span><span class="nv">count</span><span class="o">=</span>$<span class="o">[</span><span class="w"> </span><span class="nv">$count</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
-<span class="w">    </span><span class="nb">shift</span>
-<span class="k">done</span>
-<span class="nb">exit</span>
+<p>每個用戶都可以使用自己的<code>cron</code>時間表，linux提供了<code>crontab</code>命令來處理<code>cron</code>時間表
+<div class="highlight"><pre><span></span><code>crontab<span class="w"> </span>-l
 </code></pre></div></p>
-<hr />
-<h3 id="_5">處理選項<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<h4 id="_6">處理簡單選項<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p>透過<code>shift</code>與<code>case</code>提取單個參數</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
-<span class="k">do</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-<span class="w">        </span>-a<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -a option&quot;</span><span class="w"> </span><span class="p">;;</span>
-<span class="w">        </span>-b<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -b option&quot;</span><span class="w"> </span><span class="p">;;</span>
-<span class="w">        </span>-c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -c option&quot;</span><span class="w"> </span><span class="p">;;</span>
-<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> is not an option&quot;</span><span class="p">;;</span>
-<span class="w">    </span><span class="k">esac</span>
-<span class="w">    </span><span class="nb">shift</span>
-<span class="k">done</span>
-<span class="nb">exit</span>
+<ul>
+<li><code>cron</code>目錄
+<code>cron</code>的基礎目錄共有四個：hourly, daily, monthly和weekly</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/etc/cron.*ly
 </code></pre></div>
-<h4 id="getopt">getopt<a class="headerlink" href="#getopt" title="Permanent link">&para;</a></h4>
-<p>getopt在處理命令行選項和參數時非常方便，其命令格式如下
-<code>getopt optstring parameters</code>
-* <code>optstring</code> 定義了有效的命令行選項，或選項需要那些參數</p>
-<p>例子
-<div class="highlight"><pre><span></span><code>$ getopt ab:cd -a -b BValue -cd test1 test2
--a -b Bvalue -c -d -- test1 test2
-$
-</code></pre></div>
-冒號<code>:</code>被放在<code>b</code>後面，代表了<code>b</code>選項需要一個參數</p>
-<h5 id="getopt_1">在腳本中使用getopt<a class="headerlink" href="#getopt_1" title="Permanent link">&para;</a></h5>
-<p>使用<code>set</code>命令處理各種變量
-<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>--<span class="k">$(</span>getopt<span class="w"> </span>-q<span class="w"> </span>ab:cd<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
-
-<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
-<span class="k">do</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>
-<span class="w">        </span>-a<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found -a option&quot;</span><span class="p">;;</span>
-<span class="w">        </span>-b<span class="o">)</span><span class="w"> </span><span class="nv">parameter</span><span class="o">=</span><span class="nv">$2</span>
-<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -b option with parameter value </span><span class="nv">$param</span><span class="s2">&quot;</span>
-<span class="w">            </span>shift<span class="p">;;</span>
-<span class="w">        </span>-c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found -c option&quot;</span><span class="p">;;</span>
-<span class="w">        </span>--<span class="o">)</span><span class="w"> </span><span class="nb">shift</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;;</span>
-<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> is not an option&quot;</span><span class="p">;;</span>
-<span class="w">    </span><span class="k">esac</span>
-<span class="w">    </span><span class="nb">shift</span>
-<span class="k">done</span>
+<ul>
+<li><code>anacron</code></li>
+</ul>
+<p>如果運行時間已到，但系統是關閉的，那麼<code>cron</code>便會跳過並不執行，<code>anacron</code>確保系統啟動後作業一定會運行</p>
+<p><code>anacron</code>命令如下
+<div class="highlight"><pre><span></span><code>period<span class="w"> </span>delay<span class="w"> </span>identifier<span class="w"> </span><span class="nb">command</span>
 </code></pre></div></p>
-<h4 id="getopts">在腳本中使用getopts<a class="headerlink" href="#getopts" title="Permanent link">&para;</a></h4>
-<p>與getopt類似，多了些拓展功能，getopts每次只處理一個檢測到的命令列參數，處理完後getopts會退出並返回一個大於0的退出狀態碼</p>
-<p>使用方式與<code>getopt</code>類似，有效選項字母會在optstring列出，子母後若要參數值，就會在後面加一個冒號
-<div class="highlight"><pre><span></span><code>getopts optstring variable
-</code></pre></div>
-<code>getopts</code>選項加帶的參數值會被保存到<code>$OPTANG</code>環境變量
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span>
-<span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span>:ab:c<span class="w"> </span>opt
-<span class="k">do</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-<span class="w">        </span>a<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -a option&quot;</span><span class="p">;;</span>
-<span class="w">        </span>b<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -b option with parameter value </span><span class="nv">$OPTARG</span><span class="s2">&quot;</span><span class="p">;;</span>
-<span class="w">        </span>c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found the -c option&quot;</span><span class="p">;;</span>
-<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Unknown option: </span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="p">;;</span>
-<span class="w">    </span><span class="k">esac</span>
-<span class="k">done</span>
-<span class="nb">exit</span>
-</code></pre></div></p>
-<h4 id="_7">選項標準參考<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>在Linux系統中，某些選項字母會有隱含的標準含意</p>
-<table>
-<thead>
-<tr>
-<th>選項</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>顯示所有對象</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>指定目錄</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>拓展對象</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>指定讀入數據的文件</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>忽略文本大小寫</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>產生長格式輸出</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>使用非交互模式</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>將所有輸出重定向至指定的文件</td>
-</tr>
-<tr>
-<td>-q or -s</td>
-<td>以靜默模式運行</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>遞迴處理文件與目錄</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>生成詳細輸出</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除某個文件</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>為所有問題回答yes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_8">獲取用戶輸入<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<h4 id="read"><code>read</code><a class="headerlink" href="#read" title="Permanent link">&para;</a></h4>
-<p><code>read</code>命令從標準輸入或另一個文件中接受輸入，獲取輸入後，<code>read</code>會將數據存入變量</p>
-<ul>
-<li>範例</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;Enter your name :&quot;</span>
-<span class="nb">read</span><span class="w"> </span>name
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="nv">$name</span><span class="s2">, welcome to my script. &quot;</span>
-<span class="nb">exit</span>
-</code></pre></div>
-<blockquote>
-<p>注意：<code>echo -n</code>選項不會在字符串末端輸出換行符，允許用戶緊跟其後輸入數據</p>
-</blockquote>
-<ul>
-<li><code>-p</code> 直接指定提示</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Please enter your age: &quot;</span>age
-</code></pre></div>
-<ul>
-<li>
-<p><code>REPLY</code>：包含所有輸入數據的環境變量</p>
-</li>
-<li>
-<p><code>-t</code> 指定計時器</p>
-</li>
-</ul>
-<p>使用<code>read</code>時，腳本可能一直等著用戶輸入，可以指定一個計時器，若超時<code>read</code>命令會返回非0狀態</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-t<span class="w"> </span><span class="m">5</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter your name : &quot;</span><span class="w"> </span>name
-<span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="nv">$name</span><span class="s2">, welcome to my script&quot;</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sorry, no longer waititng for name&quot;</span>
-<span class="k">fi</span>
-<span class="nb">exit</span>
-</code></pre></div>
-* <code>-n</code> 統計輸入的字符數，當自符數達到預設值時就自動退出
-* <code>-s</code> 隱藏顯示輸入</p>
-<ul>
-<li>從文件中讀取
-從文件中一行一行讀取
-<div class="highlight"><pre><span></span><code><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
-cat<span class="w"> </span><span class="nv">$HOME</span>/scripts/test.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line
-<span class="k">do</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Line </span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$line</span><span class="s2">&quot;</span>
-<span class="w">    </span><span class="nv">count</span><span class="o">=</span>$<span class="o">[</span><span class="w"> </span><span class="nv">$count</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
-<span class="k">done</span>
-</code></pre></div></li>
-</ul>
 
 
 

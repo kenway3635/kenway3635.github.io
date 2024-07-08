@@ -524,6 +524,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../scripting/" class="md-nav__link">
         
   
@@ -637,6 +658,15 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       需要定期運行的腳本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      預設shell啟動腳本
     </span>
   </a>
   
@@ -1105,6 +1135,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      預設shell啟動腳本
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1206,6 +1245,12 @@ nice命令會阻止普通用戶提高命令的優先級，只有root或特權用
 <p><code>anacron</code>命令如下
 <div class="highlight"><pre><span></span><code>period<span class="w"> </span>delay<span class="w"> </span>identifier<span class="w"> </span><span class="nb">command</span>
 </code></pre></div></p>
+<h4 id="shell">預設shell啟動腳本<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h4>
+<p>可以將腳本放在預設目錄，當用戶作登入等動作時會啟動的預設腳本
+* <code>$HOME/.bash_profile</code>
+* <code>$HOME/.bash_login</code>
+* <code>$HOME/.profile</code></p>
+<p>每次啟動新shell，bash shell都會運行<code>.bashrc</code></p>
 
 
 

@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../CH1_Getting_Started/">
+        <link rel="prev" href="../command/">
       
       
-        <link rel="next" href="../CH3_Memory%20Management/">
+        <link rel="next" href="../scripting/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Chapter 2 : Creating UE Properties - note_server</title>
+        <title>Functions - note_server</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chapter-2-creating-ue-properties" class="md-skip">
+        <a href="#shell-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter 2 : Creating UE Properties
+              Functions
             
           </span>
         </div>
@@ -400,17 +400,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -424,7 +426,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Linux Shell Script
@@ -438,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/File_System/" class="md-nav__link">
+      <a href="../File_System/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -459,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/Input_Output/" class="md-nav__link">
+      <a href="../Input_Output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/What_Is_apt/" class="md-nav__link">
+      <a href="../What_Is_apt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/command/" class="md-nav__link">
+      <a href="../command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,10 +521,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/functions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -531,6 +551,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shell-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      創建函數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      返回值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      創建函式庫
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -543,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/scripting/" class="md-nav__link">
+      <a href="../scripting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/shell_control/" class="md-nav__link">
+      <a href="../shell_control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -585,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux%20Shell%20Script/shell_env/" class="md-nav__link">
+      <a href="../shell_env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,19 +753,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -699,7 +777,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             UE
@@ -713,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CH1_Getting_Started/" class="md-nav__link">
+      <a href="../../UE/CH1_Getting_Started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -731,30 +809,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Chapter 2 : Creating UE Properties
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../UE/CH2_Creating%20Classes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -763,98 +821,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-creating-uclass" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Creating UCLASS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-creating-uproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Creating UPROPERTY
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instantiating" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instantiating
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#destroying" class="md-nav__link">
-    <span class="md-ellipsis">
-      Destroying
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-creating-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Creating Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-creating-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Creating Enum
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" class="md-nav__link">
-    <span class="md-ellipsis">
-      UENUM([Specifier, Specifier, ...]) enum FEnumName { enumMember1; enumMember2; enumMember3; };
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-ufunction" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. UFUNCTION()
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -867,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CH3_Memory%20Management/" class="md-nav__link">
+      <a href="../../UE/CH3_Memory%20Management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CH4_Actors_and_Components/" class="md-nav__link">
+      <a href="../../UE/CH4_Actors_and_Components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,8 +1039,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1083,74 +1047,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-creating-uclass" class="md-nav__link">
+  <a href="#shell-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Creating UCLASS
+      Shell Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      創建函數
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-creating-uproperty" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Creating UPROPERTY
+      返回值
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#instantiating" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Instantiating
+      創建函式庫
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#destroying" class="md-nav__link">
-    <span class="md-ellipsis">
-      Destroying
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-creating-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Creating Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-creating-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Creating Enum
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" class="md-nav__link">
-    <span class="md-ellipsis">
-      UENUM([Specifier, Specifier, ...]) enum FEnumName { enumMember1; enumMember2; enumMember3; };
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-ufunction" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. UFUNCTION()
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1169,131 +1103,52 @@
                   
 
 
-<h1 id="chapter-2-creating-ue-properties">Chapter 2 : Creating UE Properties<a class="headerlink" href="#chapter-2-creating-ue-properties" title="Permanent link">&para;</a></h1>
-<h2 id="1-creating-uclass">1. Creating UCLASS<a class="headerlink" href="#1-creating-uclass" title="Permanent link">&para;</a></h2>
-<p>It&rsquo;s perfectally accaptable using naive C++ Object <strong>Class</strong> and <strong>new</strong> , <strong>delete</strong> operaters in UE Classes, 
-but using <strong>UCLASS</strong> macro can utilize UE&rsquo;s build in smart pointer and garbage collection functions.
- * UE4 such as <strong>UPROPERTY</strong>, <strong>UFUNCTION</strong> and <strong>UCLASS</strong> will be generated after include the<br />
- &lt; UCLASSNAME &gt;.generate.h files<br />
- * It&rsquo;s important to noted that <strong>&lt; UCLASSNAME &gt;.genetate.h</strong> file must be included 
- as the last #include in the list of #include in <strong>UCLASS.h</strong>  </p>
-<p>Here&rsquo;s a correct example</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
+  <h1>Functions</h1>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;CoreMinimal.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;UObject/NoExportTypes.h&quot;</span>
+<h2 id="shell-functions">Shell Functions<a class="headerlink" href="#shell-functions" title="Permanent link">&para;</a></h2>
+<h3 id="_1">創建函數<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>有兩種創造函數的方式
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>name<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>commands
+<span class="o">}</span>
 
-<span class="c1">//CORRECT, generated file is the last file included</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;UserProfile.generated.h&quot;</span><span class="c1"> </span>
-
-<span class="n">UCLASS</span><span class="p">()</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">XDD_API</span><span class="w"> </span><span class="n">UUserProfile</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
-
-<span class="p">};</span>
+name<span class="o">()</span>
+<span class="o">{</span>
+<span class="w">    </span>commands
+<span class="o">}</span>
 </code></pre></div>
-<p>Several keywords can modify the way of <strong>UCALSS</strong> behaves
-* Blueprintable : be able to construct a blueprint inside UE editor
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">Blueprintable</span><span class="p">)</span>
-</code></pre></div>
-* BlueprintType : be able to use as a variable from blueprint
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
-</code></pre></div>
-* NotBlueprintType : can not use this variable from blueprint
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">NotBlueprintType</span><span class="p">)</span>
+使用函數，與其他shell命令依樣寫出函數名即可</p>
+<p>如果試圖在函數被定義前使用，會收到錯誤訊息
+<div class="highlight"><pre><span></span><code>command not found
 </code></pre></div></p>
-<hr />
-<h2 id="2-creating-uproperty">2. Creating UPROPERTY<a class="headerlink" href="#2-creating-uproperty" title="Permanent link">&para;</a></h2>
-<p>A compelet document can be found in <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-uproperties?application_version=5.3">here</a><br />
-in <strong>UCLASS</strong>, Each <strong>UPROPERTY</strong> represent it can be a visual editable or blueprint-accessable
-data member of the <strong>UCLASS</strong><br />
-Examples such as <strong>EditAnywhere</strong>, <strong>BlueprintReadWrite</strong> can be added to each <strong>UPROPERTY</strong>
-<div class="highlight"><pre><span></span><code><span class="n">UCLASS</span><span class="p">(</span><span class="n">Blueprintable</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">example_API</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATE_BODY</span><span class="p">()</span>
-<span class="w">    </span><span class="k">public</span><span class="o">:</span>
-<span class="w">        </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnyWhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stats</span><span class="p">)</span>
-<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">Armor</span><span class="p">;</span>
+<h3 id="_2">返回值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Shell會在函數結束時返回一個退出狀態碼，默認為函數內 <strong>最後一個命令</strong> 的退出狀態</p>
+<p>我們可以使用<code>return</code> 指定退出狀態，要注意
+1. 函數一執行結束就立刻讀取其值
+2. 退出狀態必須介於 <strong>0~255</strong></p>
+<p>我們也可以把函數輸出賦予給變量</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">function</span><span class="w"> </span>foo
+<span class="o">{</span>
+<span class="w">    </span><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;enter a value :&quot;</span><span class="w"> </span>value
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>$<span class="o">[</span><span class="w"> </span><span class="nv">$value</span><span class="w"> </span>*<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span>
+<span class="o">}</span>
 
-<span class="w">        </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnyWhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stats</span><span class="p">)</span>
-<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">HpMax</span><span class="p">;</span><span class="w">  </span>
-<span class="p">};</span>
+<span class="nv">result</span><span class="o">=</span><span class="k">$(</span>foo<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The new value is </span><span class="nv">$result</span><span class="s2">&quot;</span>
 </code></pre></div>
-parameters can be passed to the <strong>UPROPERTY()</strong> macro, such as 
-* <strong>EditAnywhere</strong> : the property can be edited every where obviously
-* <strong>EditDefaultsOnly</strong> : Property can be changed only for blueprint before runtime(change default value)
-* <strong>EditInstanceOnly</strong> : Property can be changed only for game-level instance of <strong>UCLASS</strong> object
-* <strong>BlueprintReadWirte</strong> : Property can be both readable &amp; writable from blueprint diagram, <strong>notice</strong> that with <strong>BlueprintReadWrite</strong>, it must be a public member of class
-* <strong>BlueprintReadOnly</strong> : The Property must be set from C++ and cannot be changed from the blueprints
-* <strong>Category</strong> : It&rsquo;s recommended to always specify a <strong>Category</strong> for <strong>UPROPERTY( )</strong>, it determines which submenu the <strong>UPROPERTY( )</strong> will appear under in the property editor  </p>
-<hr />
-<p>## 3. Allocation
-details can be found <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/typed-object-pointer-properties-in-unreal-engine?application_version=5.2">here</a>
- As reference before, we should not use <strong>new</strong> and <strong>delete</strong> for opject creation, instead, we use <strong>ConstructObject</strong> to instantiate object  </p>
-<p><strong>UCLASS</strong> should be considered as resources to the C++ code, and their names should never hardcoded into the code base.</p>
-<p>Therefore, we can declare an empty <strong>UCLASS</strong> reference in C++ code, then select it from blueprint dialog in UE editor.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// in UCLASS  code section</span>
+<p>函數內變量的處理方式也同樣分為全域變量與區域變量
+如果不需要在函數內使用全域變量，可以加入<code>local</code>關鍵字
+<div class="highlight"><pre><span></span><code><span class="nb">local</span><span class="w"> </span>temp
 
-<span class="c1">//Display any UCLASSes deriving from UObject in a dropdown menu in Blueprints.</span>
-<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Editanywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unit</span><span class="p">)</span>
-<span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">UClassOfPlayer</span><span class="p">;</span>
-
-<span class="c1">//Displays string name of UCLASSes that derive from the GameMode C++ base class</span>
-<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MetaClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GameMode&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unit</span><span class="p">)</span>
-<span class="n">FstringClassReference</span><span class="w"> </span><span class="n">UClassGameMode</span><span class="p">;</span>
+<span class="nb">local</span><span class="w"> </span>temp$<span class="o">[</span><span class="w"> </span><span class="nv">$value</span><span class="w"> </span>+<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]</span>
+</code></pre></div></p>
+<h3 id="_3">創建函式庫<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>使用函式庫的關鍵在於<code>source</code>命令，<code>source</code>會在當前shell的上下文執行命令，而不是創建新的shell並在其中執行命令</p>
+<p><code>source</code>命令有個別名，稱為 <strong>點號操作符</strong> ，要在shell腳本中運行myfunc函式庫，只需添加下列代碼
+<div class="highlight"><pre><span></span><code>.<span class="w"> </span>./myfunc
 </code></pre></div>
-<ul>
-<li><strong>TSubclassOf&lt;&gt;</strong> : specify a <strong>UClass</strong> name using drop-down menu inside UE editor with related member.</li>
-<li><strong>FStringClassReference</strong> :the <strong>MetaClass</strong> refer to the base C++ class, which limit the drop-down menu&rsquo;s content to only the blueprints derived from that C++ class.</li>
-</ul>
-<hr />
-<h2 id="instantiating">Instantiating<a class="headerlink" href="#instantiating" title="Permanent link">&para;</a></h2>
-<p>details can be found <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/creating-objects-in-unreal-engine?application_version=5.2">here</a><br />
-Instantiating new instances of <strong>UObject</strong> typically use <strong>ConstructObject&lt;&gt;</strong> or <strong>NewObject&lt;&gt;</strong>,
-it will need at least two info to work properly.
-* <strong>UClass</strong> reference to which type you want to initiate
-* Original C++ base class</p>
-<p>for example, initiate the object using <strong>ConstructObject&lt; &gt;</strong> will looks like<br />
-<div class="highlight"><pre><span></span><code><span class="n">ObjectType</span><span class="o">*</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstructObject</span><span class="o">&lt;</span><span class="n">ObjectType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UClassReference</span><span class="p">);</span>
-</code></pre></div>
-<strong>NewObject&lt;&gt;</strong>  is simple, but need to pass a GetTransientPackage() with each call
-<div class="highlight"><pre><span></span><code><span class="n">ObjectType</span><span class="o">*</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewObject</span><span class="o">&lt;</span><span class="n">ObjectType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="n">UClassReference</span><span class="p">);</span>
-</code></pre></div></p>
-<hr />
-<h2 id="destroying">Destroying<a class="headerlink" href="#destroying" title="Permanent link">&para;</a></h2>
-<p>simply call <strong>ConditionalBeginDestroy()</strong> to begin teardown
-<div class="highlight"><pre><span></span><code><span class="n">newobject</span><span class="o">-&gt;</span><span class="n">ConditionalBeginDestroy</span><span class="p">();</span>
-<span class="n">newobject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-</code></pre></div></p>
-<p>default garbage collection time can be found in <strong>BaseEngine.ini</strong><br />
-we can trigger memory cleanup manually by calling 
-<div class="highlight"><pre><span></span><code>GetWorld()-&gt;FroceGarbageCollection(true)
-</code></pre></div></p>
-<hr />
-<h2 id="4-creating-structure">4. Creating Structure<a class="headerlink" href="#4-creating-structure" title="Permanent link">&para;</a></h2>
-<p>A blueprint editable property in UE editor that contains multiple member, docs is <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/structs-in-unreal-engine?application_version=5.2">here</a>
-<div class="highlight"><pre><span></span><code><span class="n">USTRUCT</span><span class="p">([</span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="p">...])</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">FStructName</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
-<span class="p">};</span>
-</code></pre></div></p>
-<hr />
-<h2 id="5-creating-enum">5. Creating Enum<a class="headerlink" href="#5-creating-enum" title="Permanent link">&para;</a></h2>
-<p>similar to USTRUCT</p>
-<h2 id="uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3"><div class="highlight"><pre><span></span><code><span class="n">UENUM</span><span class="p">([</span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="n">Specifier</span><span class="p">,</span><span class="w"> </span><span class="p">...])</span>
-<span class="k">enum</span><span class="w"> </span><span class="nc">FEnumName</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">enumMember1</span><span class="p">;</span>
-<span class="w">    </span><span class="n">enumMember2</span><span class="p">;</span>
-<span class="w">    </span><span class="n">enumMember3</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div><a class="headerlink" href="#uenumspecifier-specifier-enum-fenumname-enummember1-enummember2-enummember3" title="Permanent link">&para;</a></h2>
-<h2 id="5-ufunction">5. UFUNCTION()<a class="headerlink" href="#5-ufunction" title="Permanent link">&para;</a></h2>
-<p><code>UFUNCTION()</code> is a c++ function that is also callable with BluePrint, any c++ function can be marked as a <code>UFUNCTION()</code>  </p>
-<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/ufunctions-in-unreal-engine?application_version=5.3">docs</a></p>
+若路徑不同，則需要使用正確路徑去引入函式庫</p>
 
 
 

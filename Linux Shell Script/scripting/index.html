@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../command/">
+        <link rel="prev" href="../functions/">
       
       
         <link rel="next" href="../shell_control/">
@@ -521,6 +521,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -837,6 +858,39 @@
   <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       處理循環的輸出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed 與 awk
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sed 與 awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gawk" class="md-nav__link">
+    <span class="md-ellipsis">
+      gawk
     </span>
   </a>
   
@@ -1547,6 +1601,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sed-awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed 與 awk
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sed 與 awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gawk" class="md-nav__link">
+    <span class="md-ellipsis">
+      gawk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2161,6 +2248,57 @@ for 命令也允許可以使用多個變量</p>
 <span class="k">done</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
 </code></pre></div>
 這會將結果輸出到<code>output.txt</code>中</p>
+<h2 id="sed-awk">sed 與 awk<a class="headerlink" href="#sed-awk" title="Permanent link">&para;</a></h2>
+<p>處理文件的工具</p>
+<h3 id="sed">sed<a class="headerlink" href="#sed" title="Permanent link">&para;</a></h3>
+<p><code>sed</code>被稱為 <strong>流編輯器</strong> (stream editor)，可以執行以下動作</p>
+<ul>
+<li>從輸入中讀取一行數據</li>
+<li>根據提供的編輯器命令匹配參數</li>
+<li>按照命令修改數據流中的數據</li>
+<li>將新數據輸出到STDOUT</li>
+</ul>
+<p>命令格式如下
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>options<span class="w"> </span>script<span class="w"> </span>file
+</code></pre></div>
+* options
+    * <code>-e command</code> : 處理輸入時，加入額外的<code>sed</code>命令
+    * <code>-f file</code>：處理輸入時，將<code>file</code>中指定的命令添加到已有的命令中
+    * <code>-n</code>：不產生命令輸出，使用<code>p</code> (print)命令完成輸出</p>
+<p>在命令中定義編輯器命令</p>
+<div class="highlight"><pre><span></span><code>$ echo &quot;This is a test&quot; | sed &#39;s/test/big test/&#39;
+This is a big test
+</code></pre></div>
+<p><code>s</code>替換命令用斜線間指定的第二個字符串替換第一個字符串</p>
+<p><code>sed</code>命令並不會修改文本文件的數據</p>
+<h3 id="gawk">gawk<a class="headerlink" href="#gawk" title="Permanent link">&para;</a></h3>
+<p>在gawk中，可以實現以下操作</p>
+<ul>
+<li>定義變量來保存數據</li>
+<li>使用算術與字符串來處理數據</li>
+<li>使用if-then與loop等邏輯處理數據</li>
+<li>提取文件的數據並重新排列組合</li>
+</ul>
+<p>命令格式如下
+<div class="highlight"><pre><span></span><code>gawk<span class="w"> </span>options<span class="w"> </span>program<span class="w"> </span>file
+</code></pre></div></p>
+<ul>
+<li>options<ul>
+<li><code>-F fs</code>：指定行中劃分數據分段的分隔符</li>
+<li><code>-f file</code>：從指定文件中讀取<code>gawk</code>腳本代碼</li>
+<li><code>-v var=value</code>：定義<code>gawk</code>腳本中的變量及默認值</li>
+<li><code>-L [keyword]</code>：指定<code>gawk</code>的兼容模式</li>
+</ul>
+</li>
+</ul>
+<p>需要把<code>gawk</code>命令腳本放到單引號內</p>
+<p><div class="highlight"><pre><span></span><code>$ gawk &#39;{print &quot;Hello World!&quot;}&#39;
+This is a test
+Hello World!
+This is another test
+Hello World!
+</code></pre></div>
+要終止這個<code>gawk</code>程序，需要使用<code>Ctrl+D</code>生成EOF字符</p>
 
 
 

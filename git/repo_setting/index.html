@@ -395,6 +395,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../C_and_C%2B%2B/hexdump/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hexdump
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../C_and_C%2B%2B/memory_operation/" class="md-nav__link">
         
   
@@ -1083,6 +1104,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      .git目錄
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1432,6 +1471,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      .git目錄
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1513,6 +1570,7 @@
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>$ git add *.html # add all html file into git
 </span></code></pre></div>
 <p><code>git add --all</code>與<code>git add .</code>在<code>git 1.x</code>版本有所不同，<code>git add .</code>不會處理刪除檔案的行為，但在<code>git 2.x</code>版本後兩者就相同了</p>
+<p>在增加檔案時，可以加入<code>-p</code>再加上<code>e</code>選項，便能在編輯器內編輯想要加入暫存區的區塊</p>
 <h4 id="_2">刪除檔案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>用系統指令等方式直接刪除
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ rm file.txt
@@ -1564,7 +1622,7 @@
 </ul>
 <h4 id="commit_1">追加檔案至最近一次commit<a class="headerlink" href="#commit_1" title="Permanent link">&para;</a></h4>
 <p>同樣使用<code>--amend</code>參數</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$ git add added_file.txt
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$ SSgit add added_file.txt
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>$ git commit --amend --no-edit
 </span></code></pre></div>
 <h4 id="commit_2">拆除commit<a class="headerlink" href="#commit_2" title="Permanent link">&para;</a></h4>
@@ -1581,6 +1639,19 @@
 <p><code>--soft</code> 都不會丟棄</p>
 <h5 id="hard">hard<a class="headerlink" href="#hard" title="Permanent link">&para;</a></h5>
 <p><code>--hard</code>會將暫存區與工作目錄的檔案全部丟棄</p>
+<p>可以利用<code>reflog</code>查看HEAD移動的紀錄</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$ git reflog
+</span></code></pre></div>
+<h3 id="_6">分支<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>查看<code>repo</code>分支
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$ git branch
+</span></code></pre></div></p>
+<h3 id="git">.git目錄<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<p>git會將檔案及SHA-1值產生Blob物件(Binary large object)
+一般看不出來檔案內容，需利用<code>git cat-file</code>查看</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$ git cat-file -p &lt;Blob file&gt;
+</span></code></pre></div>
+<p>git會對檔案內容使用SHA-1計算，這也是為甚麼一個空的資料夾無法被git感應到</p>
 
 
 

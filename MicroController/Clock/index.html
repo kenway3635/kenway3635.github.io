@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../../python/python_scripting/">
+        <link rel="prev" href="../../Linux%20Shell%20Script/shell_env/">
       
+      
+        <link rel="next" href="../GPIO/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Ssh - note_server</title>
+        <title>Clock - note_server</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ssh-secure-shell-protocol" class="md-skip">
+        <a href="#clock" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ssh
+              Clock
             
           </span>
         </div>
@@ -689,17 +691,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -713,7 +717,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             MicroController
@@ -724,10 +728,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../MicroController/Clock/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Clock
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -736,6 +758,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clock
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-system-clock-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      The System Clock layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peripheral-clock-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peripheral Clock Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -748,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../MicroController/GPIO/" class="md-nav__link">
+      <a href="../GPIO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1130,19 +1212,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
           <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
@@ -1156,7 +1236,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             Ssh
@@ -1167,28 +1247,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Ssh
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ssh/ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,66 +1259,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ssh-secure-shell-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      SSH (Secure Shell Protocol)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="SSH (Secure Shell Protocol)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
-    <span class="md-ellipsis">
-      SSH的安全認證
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#man-in-the-middle-attack" class="md-nav__link">
-    <span class="md-ellipsis">
-      中間人攻擊(man-in-the-middle-attack)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#openssh" class="md-nav__link">
-    <span class="md-ellipsis">
-      OpenSSH
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1294,37 +1296,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssh-secure-shell-protocol" class="md-nav__link">
+  <a href="#clock" class="md-nav__link">
     <span class="md-ellipsis">
-      SSH (Secure Shell Protocol)
+      Clock
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SSH (Secure Shell Protocol)">
+    <nav class="md-nav" aria-label="Clock">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
+  <a href="#sources" class="md-nav__link">
     <span class="md-ellipsis">
-      SSH的安全認證
+      Sources:
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#man-in-the-middle-attack" class="md-nav__link">
+  <a href="#the-system-clock-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      中間人攻擊(man-in-the-middle-attack)
+      The System Clock layout
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#openssh" class="md-nav__link">
+  <a href="#peripheral-clock-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenSSH
+      Peripheral Clock Configuration
     </span>
   </a>
   
@@ -1350,29 +1352,37 @@
                   
 
 
-  <h1>Ssh</h1>
+  <h1>Clock</h1>
 
-<h2 id="ssh-secure-shell-protocol">SSH (Secure Shell Protocol)<a class="headerlink" href="#ssh-secure-shell-protocol" title="Permanent link">&para;</a></h2>
-<p>一種加密的網路傳輸協議，通常被用來登入到遠端電腦執行命令</p>
-<h3 id="ssh">SSH的安全認證<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
-<p>SSH提供兩種級別的安全認證</p>
+<h2 id="clock">Clock<a class="headerlink" href="#clock" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="sources">Sources:<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Crystal Oscillator</strong> (External)</li>
+<li><strong>The RC Oscillator</strong> (Internal)</li>
+<li><strong>The PLL</strong> (Phase Locked Loop) (Internal)</li>
+</ol>
+<h3 id="the-system-clock-layout">The System Clock layout<a class="headerlink" href="#the-system-clock-layout" title="Permanent link">&para;</a></h3>
+<p><img src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240819195919505.png" alt="image-20240819195919505" style="zoom: 80%;" /></p>
+<h3 id="peripheral-clock-configuration">Peripheral Clock Configuration<a class="headerlink" href="#peripheral-clock-configuration" title="Permanent link">&para;</a></h3>
 <ul>
+<li>By default, peripheral clock of most peripheral will be disabled to save power</li>
+<li>Peripheral won&rsquo;t take or respond to configuration until it&rsquo;s enabled</li>
 <li>
-<p>第一種類別：知道帳號與密碼，就可以登入到遠端主機，並且所有傳輸的資料都會被加密</p>
+<p><img src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240819201508286.png" alt="image-20240819201508286" style="zoom:67%;" /></p>
 </li>
 <li>
-<p>第二種類別：需要依靠金鑰，並且把公鑰放在需要訪問的主機上，遠端伺服器接受到請求後，會先尋找公鑰，並與你傳送過去的公鑰進行比對，驗證簽章是否正確</p>
+<p>Clock output setting for GPIO</p>
 </li>
+<li><img alt="image-20240821205355151" src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240821205355151.png" /></li>
 </ul>
-<p>SSH中的公鑰用來檢查簽章是否正確，而私鑰主要是用來做電子簽名與解密</p>
-<h3 id="man-in-the-middle-attack">中間人攻擊(man-in-the-middle-attack)<a class="headerlink" href="#man-in-the-middle-attack" title="Permanent link">&para;</a></h3>
-<p>SSH在第一次連線時，需要互相把公鑰傳送給對方，若中間被掉包就有可能與其他未知的人建立了安全連線</p>
-<p>為了解決這問題，可以用公鑰認證系統 Public Key Infrastructure(PKI)解決</p>
-<p>公鑰加密演算法
-* RSA (Rivest-Shamir-Adleman)
-* DSA (Digital Signature Algorithm)</p>
-<h3 id="openssh">OpenSSH<a class="headerlink" href="#openssh" title="Permanent link">&para;</a></h3>
-<p>SSH的開源解決方案，<code>sshd</code>是OpenSSH的server，依據client建立遠端操控環境</p>
+<p>I2S clock source</p>
+<p><img alt="image-20240824144028777" src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240824144028777.png" /></p>
+<p><img alt="image-20240824144348245" src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240824144348245.png" /></p>
+<p>APB_CLK source</p>
+<p><img alt="image-20240824144049393" src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240824144049393.png" /></p>
+<p>CPU_CLK source</p>
+<p><img alt="image-20240824144223301" src="C:\Users\a7889\AppData\Roaming\Typora\typora-user-images\image-20240824144223301.png" /></p>
 
 
 

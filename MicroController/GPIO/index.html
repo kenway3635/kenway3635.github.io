@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gpio-conceps" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -773,6 +778,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GPIO
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -783,6 +801,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      PUSH PULL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-drain" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPEN DRAIN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1359,6 +1438,58 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      PUSH PULL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-drain" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPEN DRAIN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1373,8 +1504,6 @@
                   
 
 
-  <h1>GPIO</h1>
-
 <p><img alt="image-20240821205726450" src="../image-20240821205726450.png" /></p>
 <p><img alt="image-20240821204602607" src="../image-20240821204602607.png" /></p>
 <p><img alt="image-20240821204621614" src="../image-20240821204621614.png" /></p>
@@ -1387,6 +1516,30 @@
 <p><img alt="image-20240821205313512" src="../image-20240821205313512.png" /></p>
 <p><img alt="image-20240824122513456" src="../image-20240824122513456.png" /></p>
 <p><strong><img alt="image-20240824133256590" src="../image-20240824133256590.png" /></strong></p>
+<h1 id="gpio-conceps">GPIO CONCEPS<a class="headerlink" href="#gpio-conceps" title="Permanent link">&para;</a></h1>
+<p align="center">
+    <img src="./image.png" width="700"/>  
+</p>
+
+<h2 id="input-configuration">Input configuration<a class="headerlink" href="#input-configuration" title="Permanent link">&para;</a></h2>
+<p>for input mode, the output will be disabled</p>
+<p align="center">
+    <img src="./image-1.png" width="700"/>  
+</p>
+
+<blockquote>
+<p><strong>NOTICE</strong>
+* if <strong>pull up</strong> and <strong>pull down</strong> register is disabled, the input will be <code>noisy</code></p>
+</blockquote>
+<h2 id="output-configuration">Output configuration<a class="headerlink" href="#output-configuration" title="Permanent link">&para;</a></h2>
+<p>for GPIO output, there&rsquo;re two configuration mode
+* PUSH PULL
+* OPEN DRAIN</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h3 id="push-pull">PUSH PULL<a class="headerlink" href="#push-pull" title="Permanent link">&para;</a></h3>
+<p>push pull uses <strong>P-MOS</strong> and <strong>N-MOS</strong> to select which circuit to output</p>
+<h3 id="open-drain">OPEN DRAIN<a class="headerlink" href="#open-drain" title="Permanent link">&para;</a></h3>
+<p>open drain only uses <strong>N-MOS</strong>, causing output has 2 states: <strong>HIGH</strong>(zero) or <strong>FLOAT</strong>(random)</p>
 
 
 

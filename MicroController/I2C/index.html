@@ -1064,6 +1064,42 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#data-validaity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data validaity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-to-slave" class="md-nav__link">
+    <span class="md-ellipsis">
+      MASTER TO SLAVE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeated-startsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repeated Start(Sr)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-serial-clock-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C serial clock settings
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1862,6 +1898,42 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#data-validaity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data validaity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-to-slave" class="md-nav__link">
+    <span class="md-ellipsis">
+      MASTER TO SLAVE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeated-startsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repeated Start(Sr)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-serial-clock-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C serial clock settings
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1927,6 +1999,47 @@
 <h5 id="starts-and-stopp-condition">Start(S) and Stop(P) condition<a class="headerlink" href="#starts-and-stopp-condition" title="Permanent link">&para;</a></h5>
 <p>High to Low on <strong>SDA</strong> line while <strong>SCL</strong> is high defines a <strong>start</strong> condition</p>
 <p>Low to High on <strong>SDA</strong> line while <strong>SCL</strong> is high defines a <strong>stop</strong> condition</p>
+<h5 id="data-validaity">Data validaity<a class="headerlink" href="#data-validaity" title="Permanent link">&para;</a></h5>
+<ul>
+<li>The <strong>HIGH</strong> or <strong>LOW</strong> state of the data line can only change when the clock signal on the <strong>SCL</strong> line is <strong>LOW</strong></li>
+</ul>
+<h4 id="master-to-slave">MASTER TO SLAVE<a class="headerlink" href="#master-to-slave" title="Permanent link">&para;</a></h4>
+<ul>
+<li>MASTER receive data from slave</li>
+<li>Whenever slave receives the <strong>ACK</strong> from the master, that&rsquo;s an indication for the slave to send one more byte to the master</li>
+<li>Whenever master receives the <strong>ACK</strong> from the slave, that&rsquo;s an indication for the master that slave has received the data successfully</li>
+</ul>
+<h4 id="repeated-startsr">Repeated Start(Sr)<a class="headerlink" href="#repeated-startsr" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>start again without stop</p>
+</blockquote>
+<h4 id="i2c-serial-clock-settings">I2C serial clock settings<a class="headerlink" href="#i2c-serial-clock-settings" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>divided into <strong>standard mode</strong> and <strong>fast mode</strong></p>
+</li>
+<li>
+<p>in standard mode</p>
+</li>
+<li>
+<p>T_low may equal to T_high</p>
+</li>
+<li>
+<p>in fast mode</p>
+</li>
+<li>
+<p>T_low =    2 T_high, or</p>
+</li>
+<li>
+<p>T_low = 1.8 T_high</p>
+</li>
+<li>
+<p><strong>Clock Stretching</strong></p>
+</li>
+</ul>
+<p><strong>Clock Stretching</strong> means that holding the clock to 0 or ground level, to pause the whole I2C interface until clock is given up to it&rsquo;s normal operation level</p>
+<p>There are situations where an I2C  slaves is not able to co-operate with the clock speed given by the master and needs to slow down a little.</p>
+<p>It&rsquo;s a <strong>hardware</strong> support, we do not need to implement the <strong>stretching</strong> functionality</p>
 
 
 

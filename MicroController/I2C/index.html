@@ -1994,20 +1994,39 @@
 <li>
 <p>Each byte must followed by an Acknowledge bit</p>
 </li>
-<li>Data transfer with the most significant bit (MSB) first.</li>
+<li>
+<p><img alt="image-20241118202319449" src="../image-20241118202319449.png" /></p>
+</li>
+<li>
+<blockquote>
+<p>if <strong>SDA</strong> is low during <strong>SCL</strong> cycle : <strong>ACK</strong></p>
+<div class="codehilite"><pre><span></span><code>&gt; is __SDA__ is high during __SCL__ cycle : __NACK__
+</code></pre></div>
+
+</blockquote>
+</li>
+<li>
+<p>Data transfer with the most significant bit (MSB) first.</p>
+</li>
 </ul>
 <h5 id="starts-and-stopp-condition">Start(S) and Stop(P) condition<a class="headerlink" href="#starts-and-stopp-condition" title="Permanent link">&para;</a></h5>
 <p>High to Low on <strong>SDA</strong> line while <strong>SCL</strong> is high defines a <strong>start</strong> condition</p>
 <p>Low to High on <strong>SDA</strong> line while <strong>SCL</strong> is high defines a <strong>stop</strong> condition</p>
+<p><img alt="image-20241118202033783" src="../image-20241118202033783.png" /></p>
 <h5 id="data-validaity">Data validaity<a class="headerlink" href="#data-validaity" title="Permanent link">&para;</a></h5>
 <ul>
-<li>The <strong>HIGH</strong> or <strong>LOW</strong> state of the data line can only change when the clock signal on the <strong>SCL</strong> line is <strong>LOW</strong></li>
+<li>The <strong>HIGH</strong> or <strong>LOW</strong> state of the data line can only change when the clock signal on the <strong>SCL</strong> line is <strong>LOW</strong> (<strong>ONLY IN DATA TRANSMISSION</strong>)</li>
+<li><img alt="image-20241118202704501" src="../image-20241118202704501.png" /></li>
 </ul>
 <h4 id="master-to-slave">MASTER TO SLAVE<a class="headerlink" href="#master-to-slave" title="Permanent link">&para;</a></h4>
 <ul>
 <li>MASTER receive data from slave</li>
-<li>Whenever slave receives the <strong>ACK</strong> from the master, that&rsquo;s an indication for the slave to send one more byte to the master</li>
-<li>Whenever master receives the <strong>ACK</strong> from the slave, that&rsquo;s an indication for the master that slave has received the data successfully</li>
+<li>
+<p>Whenever slave receives the <strong>ACK</strong> from the master, that&rsquo;s an indication for the slave to send one more byte to the master</p>
+</li>
+<li>
+<p>Whenever master receives the <strong>ACK</strong> from the slave, that&rsquo;s an indication for the master that slave has received the data successfully</p>
+</li>
 </ul>
 <h4 id="repeated-startsr">Repeated Start(Sr)<a class="headerlink" href="#repeated-startsr" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -2019,13 +2038,13 @@
 <p>divided into <strong>standard mode</strong> and <strong>fast mode</strong></p>
 </li>
 <li>
-<p>in standard mode</p>
+<p>in <strong>standard</strong> mode</p>
 </li>
 <li>
 <p>T_low may equal to T_high</p>
 </li>
 <li>
-<p>in fast mode</p>
+<p>in <strong>fast</strong> mode</p>
 </li>
 <li>
 <p>T_low =    2 T_high, or</p>
@@ -2040,6 +2059,13 @@
 <p><strong>Clock Stretching</strong> means that holding the clock to 0 or ground level, to pause the whole I2C interface until clock is given up to it&rsquo;s normal operation level</p>
 <p>There are situations where an I2C  slaves is not able to co-operate with the clock speed given by the master and needs to slow down a little.</p>
 <p>It&rsquo;s a <strong>hardware</strong> support, we do not need to implement the <strong>stretching</strong> functionality</p>
+<ul>
+<li><strong>Clock control register</strong> need to be calculated by following reference manual</li>
+</ul>
+<p><img alt="image-20241118194855842" src="../image-20241118194855842.png" /></p>
+<ul>
+<li><strong>BTF</strong> : Byte transfer finished</li>
+</ul>
 
 
 

@@ -1030,6 +1030,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1709,6 +1724,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1731,8 +1761,12 @@
 <h2 id="spi">SPI<a class="headerlink" href="#spi" title="Permanent link">&para;</a></h2>
 <ul>
 <li>One master, several slaves</li>
-<li>4 pins</li>
-<li><strong>MISO</strong> ：Master In / Slave Out</li>
+<li>
+<p>4 pins</p>
+</li>
+<li>
+<p><strong>MISO</strong> ：Master In / Slave Out</p>
+</li>
 <li><strong>MOSI</strong> ：Master Out / Slave In</li>
 <li><strong>SCLK</strong> ：Serial Clock</li>
 <li><strong>SS</strong> ： Slave Select</li>
@@ -1829,7 +1863,8 @@
 <div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">__attribute__</span><span class="p">((</span><span class="n">weak</span><span class="p">))</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">replacable</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">GCC</span>
 </span></code></pre></div>
-<p><strong>Common Problems</strong></p>
+<hr />
+<h3 id="common-problems">Common Problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Master can not able to produce clock and data</li>
 <li>Non-proper configuration of I/O lines for alternate functionality<ul>
